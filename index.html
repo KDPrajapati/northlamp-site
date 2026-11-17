@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<title>NORTHLAMP: your business, your people, your position</title>
-<meta name="description" content="NORTHLAMP is a 64-bit Windows app that reads the books you already keep and shows what they mean. It never writes to your accounting software.">
+<title>NORTHLAMP: run the business from the command seat</title>
+<meta name="description" content="NORTHLAMP is a 64-bit Windows app that shows owners what their books mean. It never writes to your accounting software.">
 <link rel="icon" type="image/png" href="shared/assets/northlamp_icon_starC_64.png">
 <link rel="stylesheet" href="shared/base.css">
 <link rel="stylesheet" href="shared/redesign.css">
@@ -159,6 +159,15 @@
   .hero-copy{position:relative;width:100%;padding-bottom:clamp(40px,9svh,96px)}
   .hero .lamp{margin:0 0 var(--s2)}
   .hero h1{font-size:clamp(44px,7.4vw,112px);line-height:.98;letter-spacing:-.03em;font-weight:600;margin:0 0 var(--s5);max-width:11ch}
+  .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);margin-top:var(--s4)}
+  .rung{border-top:2px solid var(--line-2);padding-top:var(--s3)}
+  .rung h3{margin:0 0 var(--s2)}.rung p{margin:0 0 var(--s2);font-size:16px}
+  .rung ul{margin:0 0 var(--s2);padding-left:1.1em;font-size:15px}.rung li{margin:4px 0}
+  .rung .next{font-weight:600}.ladder-cta{margin-top:var(--s3)}.ladder-note{margin-top:var(--s4);font-size:14px;max-width:75ch}
+  @media (max-width:1024px){.ladder{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){.ladder{grid-template-columns:1fr}}
+  .tier-items{margin:6px 0 0;padding-left:1.1em}.tier-items li{margin:2px 0}
+  .hero .hero-line{font-size:clamp(20px,2vw,26px);line-height:1.3;margin:calc(-1 * var(--s3)) 0 var(--s5);max-width:40ch}
   .hero .btn{padding:18px 34px;border-radius:999px;font-size:18px}
   .cta .demo{display:inline-block;margin-left:var(--s4);padding:18px 0;font-size:18px;font-weight:500;color:inherit;text-decoration:underline;text-underline-offset:4px}
   .hero-more{padding:0 0 var(--s7)}
@@ -219,7 +228,7 @@
       <a href="#targets">Sales targets</a>
       <a href="#owners">For owners</a>
       <a href="#investors">For investors</a>
-      <a class="nav-dl" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download</a>
+      <a class="nav-dl" href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a>
     </nav>
   </div>
 </header>
@@ -229,15 +238,15 @@
   <div class="hero-mark" aria-hidden="true"><picture><source srcset="shared/assets/northlamp_mark_starC_dark.svg" media="(prefers-color-scheme: dark)"><img data-mark-target src="shared/assets/northlamp_mark_starC.svg" width="64" height="64" alt=""></picture></div>
   <div class="wrap hero-copy">
       <p class="lamp lamp-line rise">A lamp for your books.</p>
-      <h1 class="rise" style="--d:.12s">Your business, your people, your position. At a glance.</h1>
-      <div class="cta rise" style="--d:.34s"><a class="btn" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download for Windows (64-bit)</a><a class="demo" href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a></div>
+      <h1 class="rise" style="--d:.12s">Run the business from the command seat.</h1>
+      <p class="hero-line rise" style="--d:.24s">Your books already know. Now you do.</p>
+      <div class="cta rise" style="--d:.34s"><a class="btn" href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a></div>
   </div>
 </section>
 <section class="hero-more">
   <div class="wrap">
-    <p class="sub rise" style="--d:.5s">Receivables by age. Stock running short. Read from the books you already keep. Paid plans add a price floor that counts your running costs.</p>
+    <p class="sub rise" style="--d:.5s">Receivables by age. Stock running short. Paid plans add a price floor that counts your running costs.</p>
     <p class="works">Works with: Tally. More accounting software to follow.</p>
-    <p class="fine">The installer is not code-signed yet. If Windows warns, choose More info, then Run anyway.</p>
   </div>
 </section>
 <section class="tour" aria-label="The app">
@@ -264,14 +273,8 @@
 <section class="band white" id="targets">
   <div class="wrap">
     <div class="head-row">
-      <h2>Sales targets and incentives, read from your books.</h2>
-      <p class="lede">Enterprise and above.</p>
-    </div>
-    <div class="facts">
-      <div><h3>Targets</h3><p>Set per salesperson.</p></div>
-      <div><h3>Incentives</h3><p>On money collected. Never on billing.</p></div>
-      <div><h3>Contests</h3><p>Most run monthly or quarterly. Prize set by you.</p></div>
-      <div><h3>April increment</h3><p>Projected from the year so far, for each person with a target.</p></div>
+      <h2>Sales targets, incentives and contests.</h2>
+      <p class="lede">Your salespeople against target. Enterprise and above.</p>
     </div>
   </div>
 </section>
@@ -281,7 +284,7 @@
   <div class="wrap split">
     <div>
       <h2>One readout for each part of the business</h2>
-      <p class="lede">Today: what needs you, first. Every other screen: one click.</p>
+      <p class="lede">Today: what needs you, first.</p>
       <ul class="places">
         <li><b>Money</b>Receivables, ageing, collections.</li>
         <li><b>Clients</b>Buyers and volume.</li>
@@ -293,28 +296,75 @@
   </div>
 </section>
 
-<section class="claim-band"><div class="wrap"><p class="claim">After every live read it checks its figures against the accounting software's own totals.</p></div></section>
+<section class="claim-band"><div class="wrap"><p class="claim">Nothing from your books leaves your PC unless you send it.</p></div></section>
+<section class="band white" id="plans" aria-labelledby="plans-h">
+  <div class="wrap">
+    <h2 id="plans-h">Start with the facts. Finish with the group.</h2>
+    <div class="ladder">
+      <div class="rung">
+        <h3>Free: Know where you stand</h3>
+        <p>Your sales, clients, stock and money owed, laid out the way an owner reads them.</p>
+        <ul>
+          <li>Who owes you, and how late each one is</li>
+          <li>What is running low, and what to reorder</li>
+          <li>Volume target calculator</li>
+          <li>One company</li>
+        </ul>
+        <p class="next">Free shows you who owes you. Pro collects it.</p>
+      </div>
+      <div class="rung">
+        <h3>Pro: The owner&rsquo;s edge</h3>
+        <p>The books read live, and every decision that is yours alone (collect, price, plan) backed by your own figures.</p>
+        <ul>
+          <li>A live link to your books, with a second source for other accounting software</li>
+          <li>Payment reminders with the WhatsApp message ready to send</li>
+          <li>A pricing strategy for each client, profit planning and billing verification</li>
+          <li>Clients, products and suppliers ranked, rival brands compared, and Ask answering in plain English</li>
+        </ul>
+        <p class="next">Pro is one owner&rsquo;s view. Enterprise puts the whole company on it.</p>
+      </div>
+      <div class="rung">
+        <h3>Enterprise: The operation, under command</h3>
+        <p>From the factory floor to the bank balance, the whole working company read from one seat: up to 3 companies.</p>
+        <ul>
+          <li>The factory: production runs, learned recipes, yield, workflows, timesheets and the manufacturer rollup</li>
+          <li>Operations: stock planning, split dispatches recorded, the order chat read, salesperson commission worked out</li>
+          <li>The money: bank balance, cash calendar, what you can afford to buy, MSME defaulter notices</li>
+          <li>The controls: GST audit, compliance calendar, team rankings, client KYC, win-back, the client map and the House Analyst</li>
+        </ul>
+        <p class="next">One company runs on Enterprise. A group needs one seat above it.</p>
+      </div>
+      <div class="rung">
+        <h3>Tycoon: The group, in one seat</h3>
+        <p>For the owner whose name is on more than one business: up to 5 companies from one install, each set of books fully separate.</p>
+        <ul>
+          <li>Portfolio: every company on one screen</li>
+          <li>Choose the company as the app opens</li>
+          <li>Everything in Enterprise, for the whole group</li>
+        </ul>
+      </div>
+    </div>
+    <p class="ladder-note">Built for the owner and the leadership seat. Your staff keep working in the software they already use; NORTHLAMP reads it. Seats for your leadership team: Free and Pro 1, Enterprise up to 20, Tycoon up to 50. PCs: 1 / 1 / 3 / 5.</p>
+    <p class="ladder-cta">Start free, or <a href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">request a demo</a>.</p>
+  </div>
+</section>
 <section class="band panels">
   <div class="wrap pair">
-    <div class="panel">
-      <h2>Plans</h2>
+    <div class="panel" id="ask">
+      <h2>See it in a demo</h2>
       <ul class="plain">
-        <li>Free: reads an exported file.</li>
-        <li>Pro: live read, owner only.</li>
-        <li>Enterprise: adds staff logins, up to 3 companies.</li>
-        <li>Tycoon: up to 5 companies.</li>
-        <li>For a licence, e-mail <a href="mailto:krupeshdprajapati@gmail.com">krupeshdprajapati@gmail.com</a>.</li>
+        <li><a href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a> by e-mail: krupeshdprajapati@gmail.com.</li>
       </ul>
     </div>
     <div class="panel">
-      <h2>How it treats your books</h2>
+      <h2>Privacy</h2>
       <ul class="plain">
         <li>Runs on your PC. Your data sits in a file there.</li>
-        <li>Reads your accounting software. Never writes to it.</li>
-        <li>Nothing from your books leaves your PC unless you use a feature that sends it, such as off-site backup to a cloud you choose, the optional AI assistant, sharing with your other laptops, or web search. WhatsApp order collection only reads orders in.</li>
-        <li>Internet features start shut on paid plans and trials, and normally on for a single-user Free install. Switch them under Settings, Internet access. WhatsApp buttons only open a chat you send yourself.</li>
+        <li>Never writes to your accounting software.</li>
+        <li>Nothing from your books leaves your PC unless you use a feature that sends it: off-site backup to a cloud you choose, the optional AI assistant, sharing with your other laptops, or web search.</li>
+        <li>Internet features start shut on paid plans and trials, and normally on for a single-user Free install. You can switch them off in Settings.</li>
         <li>Off-site backup and sharing run only after you set them up.</li>
-        <li>Apart from features you set up, it sends only a weekly version check and, once a licence key is in (not a trial), a licence check-in: daily, and every 10 minutes on the main PC or any PC not approved. Neither carries figures from your books. Airplane mode blocks both.</li>
+        <li>Apart from features you set up, it sends only a version check and a licence check-in, neither with figures from your books. Airplane mode blocks both.</li>
       </ul>
     </div>
   </div>
@@ -328,10 +378,10 @@
         <h3>The problem</h3>
         <p>Every business keeps books; few owners read them. The answers wait on the accounts team.</p>
         <h3>The product</h3>
-        <p>One Windows app reads the books and returns receivables, stock and, where costs are in the books, margin per sale. It writes nothing back.</p>
+        <p>One Windows app shows receivables, stock and, where costs are recorded, margin per sale. It never writes to the accounting software.</p>
         <h3>Where it stands</h3>
         <ul class="plain">
-          <li>64-bit Windows. Each release carries a signed manifest; the app refuses any update that does not match it.</li>
+          <li>64-bit Windows. Updates are verified before they install.</li>
           <li>In use at an early customer.</li>
         </ul>
       </div>
@@ -344,22 +394,6 @@
     </div>
   </div>
 </section>
-<section class="band" id="ask" aria-labelledby="ask-h">
-  <div class="wrap" id="contact">
-    <div>
-      <h2 id="ask-h">See it in a demo</h2>
-      <p class="lede"><a href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a> by e-mail: krupeshdprajapati@gmail.com.</p>
-    </div>
-  </div>
-</section>
-
-<section class="counts" id="counts" aria-labelledby="counts-h">
-  <div class="wrap">
-    <h2 id="counts-h">What this site counts</h2>
-    <p>GoatCounter counts visits with no cookies and does not store your IP address. It records the page address and title, the referring site, screen width, browser, system and country or region, links one visit's pages for up to 8 hours, and shows only totals.</p>
-    <p>It keeps the data on servers in Finland and Germany and shares it with no one. GitHub Pages, which hosts this site, logs IP addresses for security. This site never asks for your name or e-mail.</p>
-  </div>
-</section>
 </main>
 
 <footer>
@@ -368,7 +402,7 @@
     <span><a href="mailto:krupeshdprajapati@gmail.com">krupeshdprajapati@gmail.com</a></span>
     <span><a href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a></span>
     <span><a href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download page</a></span>
-    <span><a href="#counts">What this site counts</a></span>
+    <span>Visits are counted without cookies.</span>
   </div>
 </footer>
 <script src="shared/motion/site-motion.js" defer></script>
