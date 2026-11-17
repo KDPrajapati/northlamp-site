@@ -194,10 +194,16 @@
   .tour-steps{list-style:none;margin:0;padding:0}
   .tour-steps h3{font-size:clamp(30px,3.4vw,48px);line-height:1.05;margin:0 0 var(--s3)}
   .tour-steps p{font-size:19px;color:#2B3442}
-  main{counter-reset:nl}
-  .tour-steps h3::before,.claim::before,section.band h2::before{counter-increment:nl;content:"/" counter(nl,decimal-leading-zero);display:block;font:500 14px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.08em;color:#8C6614;margin-bottom:var(--s3)}
-  .claim-band{padding:clamp(72px,14svh,140px) 0}
-  .claim-band .claim{border:0;padding:0;font-size:clamp(34px,5.6vw,84px);line-height:1.02;max-width:20ch}
+  .show-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5) var(--s4);margin-top:var(--s5)}
+  .show-card{border-top:2px solid var(--line-2);padding-top:var(--s3)}
+  .show-card .kicker{margin:0 0 var(--s1);font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .show-card h3{margin:0 0 var(--s1)}
+  .show-card p.one{margin:0 0 var(--s2);font-size:16px;color:var(--muted)}
+  .show-card ul{list-style:none;margin:0;padding:0;font-size:15px}
+  .show-card li{padding:6px 0;border-top:1px solid var(--line)}
+  .show-card .tag{display:inline-block;margin-left:8px;padding:1px 8px;border:1px solid var(--line-2);border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--muted);white-space:nowrap;vertical-align:1px}
+  @media (max-width:1024px){.show-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:640px){.show-grid{grid-template-columns:1fr}}
   .tour-frames{display:grid;gap:var(--s5)}
   @media (min-width:901px){
     .tour-steps li{min-height:58svh;display:flex;flex-direction:column;justify-content:center;opacity:.7;transition:opacity .4s ease-out}
@@ -209,7 +215,6 @@
     .tour-js .tour-frames figure.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease-out,transform .7s cubic-bezier(.2,.7,.2,1)}
   }
   @media (prefers-reduced-motion:reduce){.tour-js .tour-frames figure,.tour-steps li{transition:none}}
-  #owners .split{grid-template-columns:minmax(0,1fr)}
   section.band{padding:128px 0}
   h2{font-size:clamp(34px,5vw,72px);line-height:1.02;letter-spacing:-.02em}
   .inv-head{font-size:clamp(36px,5.6vw,80px);max-width:16ch}
@@ -217,7 +222,6 @@
   @media (prefers-color-scheme:dark){
     .hero{background:radial-gradient(60vw 60vw at 78% 18%,rgba(226,182,81,.14),rgba(226,182,81,0) 60%),var(--paper)}
     .hero-more .sub{color:#FFFFFF} .tour{background:var(--card)} .tour-steps p{color:var(--muted)}
-    .tour-steps h3::before,.claim::before,section.band h2::before{color:var(--gold-on-navy)}
   }
   @media (max-width:900px){
     .tour-grid{grid-template-columns:1fr}
@@ -239,8 +243,7 @@
   <div class="wrap">
     <a class="brand" href="#main" aria-label="NORTHLAMP, top of page"><picture><source srcset="shared/assets/northlamp_mark_starC_dark.svg" media="(prefers-color-scheme: dark)"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></picture><span class="wordmark">NORTHLAMP<sup class="tm">&trade;</sup></span></a>
     <nav class="nav" aria-label="Page">
-      <a href="#targets">Sales targets</a>
-      <a href="#owners">For owners</a>
+      <a href="#owners">What it shows</a>
       <a href="#investors">For investors</a>
       <a class="nav-dl" href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">Request a demo</a>
     </nav>
@@ -259,7 +262,6 @@
 </section>
 <section class="hero-more">
   <div class="wrap">
-    <p class="sub rise" style="--d:.5s">Receivables by age. Stock running short. Paid plans add a price floor that counts your running costs.</p>
     <p class="works">Works with: Tally. More accounting software to follow.</p>
   </div>
 </section>
@@ -283,34 +285,84 @@
   </div>
 </section>
 
-<section class="claim-band"><div class="wrap"><p class="claim">It never writes to your accounting software.</p></div></section>
-<section class="band white" id="targets">
-  <div class="wrap">
-    <div class="head-row">
-      <h2>Sales targets, incentives and contests.</h2>
-      <p class="lede">Your salespeople against target. Enterprise and above.</p>
-    </div>
-  </div>
-</section>
-
-<section class="claim-band"><div class="wrap"><p class="claim">It runs on your own PC.</p></div></section>
 <section class="band" id="owners">
-  <div class="wrap split">
-    <div>
-      <h2>One readout for each part of the business</h2>
-      <p class="lede">Today: what needs you, first.</p>
-      <ul class="places">
-        <li><b>Money</b>Receivables, ageing, collections.</li>
-        <li><b>Clients</b>Buyers and volume.</li>
-        <li><b>Inventory</b>Shortages, reorder dates, dead stock, stock on a date you pick.</li>
-        <li><b>Prices</b>Selling price and cost. Compare with rival brands on Pro and above.</li>
-        <li><b>Team</b>Sales by person. <em>Enterprise and above.</em></li>
-      </ul>
+  <div class="wrap">
+    <h2>Who is winning. What is moving. Where next.</h2>
+    <p class="lede">Your people, clients, products and suppliers, ranked from the books you already keep.</p>
+    <div class="show-grid">
+      <div class="show-card">
+        <p class="kicker">Money</p>
+        <h3>Cash on the wall</h3>
+        <p class="one">What is owed, what is due, and what you can spend.</p>
+        <ul>
+<li>Who owes you, sorted by how old the money is</li>
+<li>Who to chase first <span class="tag">Pro</span></li>
+<li>Cash calendar: the next four weeks in and out <span class="tag">Enterprise</span></li>
+<li>Can you afford this purchase, answered in one card <span class="tag">Enterprise</span></li>
+<li>Late-payment interest owed to you as a registered MSME <span class="tag">Enterprise</span></li>
+        </ul>
+      </div>
+      <div class="show-card">
+        <p class="kicker">Market</p>
+        <h3>What is moving</h3>
+        <p class="one">The shift in what your clients buy, seen plainly.</p>
+        <ul>
+<li>What your clients buy more or less of than before <span class="tag">Pro</span></li>
+<li>Which clients moved to which product groups <span class="tag">Pro</span></li>
+<li>Clients, products and suppliers ranked, with growth on last year <span class="tag">Pro</span></li>
+<li>Products selling below breakeven, named <span class="tag">Pro</span></li>
+<li>Every sale checked against the price that client agreed <span class="tag">Pro</span></li>
+<li>Your rivals&rsquo; prices, kept beside your own <span class="tag">Pro</span></li>
+        </ul>
+      </div>
+      <div class="show-card">
+        <p class="kicker">People</p>
+        <h3>Your team, ranked</h3>
+        <p class="one">Every salesperson, read like a lap time.</p>
+        <ul>
+<li>Ranked by sales, collections, margin and new clients <span class="tag">Enterprise</span></li>
+<li>One score per salesperson, on weights you set <span class="tag">Enterprise</span></li>
+<li>Each person&rsquo;s products, best product and collection rate <span class="tag">Enterprise</span></li>
+<li>Sales targets, and the year so far against them <span class="tag">Enterprise</span></li>
+<li>Contests with prizes: new clients, collection, one product, profit <span class="tag">Enterprise</span></li>
+        </ul>
+      </div>
+      <div class="show-card">
+        <p class="kicker">Reach</p>
+        <h3>Where you sell</h3>
+        <p class="one">The towns you hold, and the ones you do not.</p>
+        <ul>
+<li>Your clients by town, sized by sales <span class="tag">Enterprise</span></li>
+<li>The towns each salesperson reaches, on a map <span class="tag">Enterprise</span></li>
+<li>Clients gone quiet, sorted into who is worth a call <span class="tag">Enterprise</span></li>
+<li>Businesses near your towns that are not yet on your book <span class="tag">Pro</span></li>
+        </ul>
+      </div>
+      <div class="show-card">
+        <p class="kicker">Operations</p>
+        <h3>Floor and stock</h3>
+        <p class="one">What to make, what to buy, what goes out today.</p>
+        <ul>
+<li>What is running low, and a reorder built for you</li>
+<li>Each item you buy: its rate over the months, by supplier</li>
+<li>Recipes, production runs and a demand forecast <span class="tag">Enterprise</span></li>
+<li>WhatsApp orders read in; what was asked for and not supplied <span class="tag">Enterprise</span></li>
+<li>Today&rsquo;s dispatch: which transporter takes which order</li>
+        </ul>
+      </div>
+      <div class="show-card">
+        <p class="kicker">Control</p>
+        <h3>Nothing missed</h3>
+        <p class="one">The checks a careful owner would run.</p>
+        <ul>
+<li>A compliance calendar of what is due <span class="tag">Enterprise</span></li>
+<li>What your books say, without being asked <span class="tag">Enterprise</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="claim-band"><div class="wrap"><p class="claim">Nothing from your books leaves your PC unless you send it.</p></div></section>
 <section class="band white" id="plans" aria-labelledby="plans-h">
   <div class="wrap">
     <h2 id="plans-h">Start with the facts. Finish with the group.</h2>
@@ -387,7 +439,7 @@
       <ul class="plain">
         <li>Runs on your PC. Your data sits in a file there.</li>
         <li>Never writes to your accounting software.</li>
-        <li>Nothing from your books leaves your PC unless you use a feature that sends it: off-site backup to a cloud you choose, the optional AI assistant, sharing with your other laptops, or web search.</li>
+        <li>Nothing from your books leaves your PC unless you use a feature that sends it: off-site backup to a cloud you choose, the optional AI assistant, sharing with your other laptops, web search, or lead search (sends a town name to a map service).</li>
         <li>Internet features start shut on paid plans and trials, and normally on for a single-user Free install. You can switch them off in Settings.</li>
         <li>Off-site backup and sharing run only after you set them up.</li>
         <li>Apart from features you set up, it sends only a version check and a licence check-in, neither with figures from your books. Airplane mode blocks both.</li>
@@ -404,7 +456,7 @@
         <h3>The problem</h3>
         <p>Every business keeps books; few owners read them. The answers wait on the accounts team.</p>
         <h3>The product</h3>
-        <p>One Windows app shows receivables, stock and, where costs are recorded, margin per sale. It never writes to the accounting software.</p>
+        <p>One Windows app that reads the books you already keep and ranks your people, clients, products and suppliers.</p>
         <h3>Where it stands</h3>
         <ul class="plain">
           <li>64-bit Windows. Updates are verified before they install.</li>
