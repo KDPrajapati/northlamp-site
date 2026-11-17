@@ -167,6 +167,20 @@
   @media (max-width:1024px){.ladder{grid-template-columns:1fr 1fr}}
   @media (max-width:640px){.ladder{grid-template-columns:1fr}}
   .tier-items{margin:6px 0 0;padding-left:1.1em}.tier-items li{margin:2px 0}
+  .rung .for{font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--muted);margin:0 0 var(--s2)}
+  .rung.fit{outline:2px solid var(--ink);outline-offset:10px}
+  .finder{margin:var(--s4) 0 0;padding:var(--s4) 0;border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+  .finder h3{margin:0 0 var(--s3)}
+  .finder fieldset{border:0;margin:0 0 var(--s3);padding:0;min-width:0}
+  .finder legend{font-size:16px;font-weight:600;padding:0;margin:0 0 var(--s1)}
+  .finder .opts{display:flex;flex-wrap:wrap;gap:var(--s1)}
+  .finder button{font:inherit;font-size:16px;color:var(--ink);background:transparent;border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;min-height:44px;cursor:pointer;max-width:100%}
+  .finder button:hover{border-color:var(--ink)}
+  .finder button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .finder-out{margin:0;font-size:18px;font-weight:600}
+  .finder-out a{margin-left:var(--s1)}
+  .finder-free{margin:var(--s1) 0 0;font-size:14px;color:var(--muted)}
+  @media (prefers-reduced-motion:no-preference){.finder button{transition:background .15s,border-color .15s}.rung{transition:outline-color .15s}}
   .hero .hero-line{font-size:clamp(20px,2vw,26px);line-height:1.3;margin:calc(-1 * var(--s3)) 0 var(--s5);max-width:40ch}
   .hero .btn{padding:18px 34px;border-radius:999px;font-size:18px}
   .cta .demo{display:inline-block;margin-left:var(--s4);padding:18px 0;font-size:18px;font-weight:500;color:inherit;text-decoration:underline;text-underline-offset:4px}
@@ -300,9 +314,18 @@
 <section class="band white" id="plans" aria-labelledby="plans-h">
   <div class="wrap">
     <h2 id="plans-h">Start with the facts. Finish with the group.</h2>
-    <div class="ladder">
+    <div class="finder" id="finder">
+      <h3>Which plan fits?</h3>
+      <fieldset><legend>How many businesses do you own?</legend><div class="opts"><button type="button" aria-pressed="false" data-q="1" data-v="1">One</button><button type="button" aria-pressed="false" data-q="1" data-v="2">Two to three</button><button type="button" aria-pressed="false" data-q="1" data-v="4">Four or five</button></div></fieldset>
+      <fieldset><legend>Do you make goods, or trade them?</legend><div class="opts"><button type="button" aria-pressed="false" data-q="2" data-v="make">Make</button><button type="button" aria-pressed="false" data-q="2" data-v="trade">Trade</button><button type="button" aria-pressed="false" data-q="2" data-v="both">Both</button></div></fieldset>
+      <fieldset><legend>Who reads the figures?</legend><div class="opts"><button type="button" aria-pressed="false" data-q="3" data-v="me">Just me</button><button type="button" aria-pressed="false" data-q="3" data-v="team">Me and my leadership team</button></div></fieldset>
+      <p class="finder-out" id="finder-out" role="status" aria-live="polite"></p>
+      <p class="finder-free" id="finder-free" hidden>Just looking? Start free.</p>
+    </div>
+    <div class="ladder" id="ladder">
       <div class="rung">
         <h3>Free: Know where you stand</h3>
+        <p class="for">For owners taking a first clear read of the business.</p>
         <p>Your sales, clients, stock and money owed, laid out the way an owner reads them.</p>
         <ul>
           <li>Who owes you, and how late each one is</li>
@@ -314,6 +337,7 @@
       </div>
       <div class="rung">
         <h3>Pro: The owner&rsquo;s edge</h3>
+        <p class="for">For the owner-operator running a single trading company.</p>
         <p>The books read live, and every decision that is yours alone (collect, price, plan) backed by your own figures.</p>
         <ul>
           <li>A live link to your books, with a second source for other accounting software</li>
@@ -325,6 +349,7 @@
       </div>
       <div class="rung">
         <h3>Enterprise: The operation, under command</h3>
+        <p class="for">For manufacturers and distributors running production, warehouses and dispatch.</p>
         <p>From the factory floor to the bank balance, the whole working company read from one seat: up to 3 companies.</p>
         <ul>
           <li>The factory: production runs, learned recipes, yield, workflows, timesheets and the manufacturer rollup</li>
@@ -336,10 +361,11 @@
       </div>
       <div class="rung">
         <h3>Tycoon: The group, in one seat</h3>
+        <p class="for">For group owners running several businesses from one command seat.</p>
         <p>For the owner whose name is on more than one business: up to 5 companies from one install, each set of books fully separate.</p>
         <ul>
           <li>Portfolio: every company on one screen</li>
-          <li>Choose the company as the app opens</li>
+          <li>Each company in its own window</li>
           <li>Everything in Enterprise, for the whole group</li>
         </ul>
       </div>
@@ -405,6 +431,36 @@
     <span>Visits are counted without cookies.</span>
   </div>
 </footer>
+<script>
+(function(){
+  var f=document.getElementById("finder");if(!f)return;
+  var a={},out=document.getElementById("finder-out"),free=document.getElementById("finder-free"),rungs=document.querySelectorAll("#ladder .rung");
+  var names=["Free","Pro","Enterprise","Tycoon"],mail="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request";
+  function plan(q1,q2,q3){
+    if(q1==="4")return "Tycoon";
+    if(q1==="2"||q2==="make"||q2==="both"||q3==="team")return "Enterprise";
+    return "Pro";
+  }
+  window.nlPlan=plan;
+  function show(){
+    var i,n,r,w={Pro:"built for the owner-operator running a single trading company.",Enterprise:"built for manufacturers and distributors.",Tycoon:"built for group owners running several businesses."};
+    for(i=0;i<rungs.length;i++)rungs[i].classList.remove("fit");
+    if(!(a[1]&&a[2]&&a[3])){out.textContent="";free.hidden=true;return;}
+    n=plan(a[1],a[2],a[3]);
+    out.textContent="";
+    out.appendChild(document.createTextNode(n+": "+w[n]));
+    r=document.createElement("a");r.href=mail;r.textContent="Request a demo";r.style.marginLeft="12px";out.appendChild(r);
+    free.hidden=false;
+    for(i=0;i<rungs.length;i++)if(rungs[i].querySelector("h3").textContent.indexOf(n+":")===0)rungs[i].classList.add("fit");
+  }
+  f.addEventListener("click",function(e){
+    var b=e.target.closest("button[data-q]");if(!b)return;
+    var q=b.getAttribute("data-q"),sib=f.querySelectorAll('button[data-q="'+q+'"]'),i;
+    for(i=0;i<sib.length;i++)sib[i].setAttribute("aria-pressed",sib[i]===b?"true":"false");
+    a[q]=b.getAttribute("data-v");show();
+  });
+})();
+</script>
 <script src="shared/motion/site-motion.js" defer></script>
 <script src="shared/motion/opening-s4dC.js" defer></script>
 <script src="shared/motion/tour.js" defer></script>
