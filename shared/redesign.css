@@ -1,0 +1,29 @@
+/* NORTHLAMP redesign (17 Nov): the opening animation and the hero picture. Shared by every variant. */
+.opening{display:none}
+.op-on .opening{display:block;position:fixed;inset:0;z-index:100;background:#030305}
+.op-on body{overflow:hidden}
+.opening video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+
+/* the hero picture IS the film's last frame: the opening flies into it */
+.hero-pic{position:relative;overflow:hidden;background:#030305}
+.hero-pic picture{display:contents}
+.hero-pic img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;max-width:none}
+.made{font-size:13px;line-height:1.4;margin:0}
+
+/* the page waits under the film, then rises as the film settles */
+.rise{transition:opacity .9s ease-out var(--d,0s),transform 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.op-on:not(.op-settling) .rise{opacity:0;transform:translateY(32px)}
+.top{transition:opacity .8s ease-out .2s}
+.op-on:not(.op-settling) .top{opacity:0}
+@media (prefers-reduced-motion:reduce){.rise,.top{transition:none}}
+
+
+/* three big true lines, word for word from the page */
+.claims{padding:var(--s6) 0 var(--s7);border-top:1px solid var(--claim-line,var(--line))}
+.claim{font-family:var(--display);font-weight:500;font-size:clamp(30px,4.6vw,68px);line-height:1.04;letter-spacing:-.02em;color:var(--claim,var(--navy));max-width:24ch;
+  margin:0;padding:var(--s5) 0;border-bottom:1px solid var(--claim-line,var(--line))}
+.num{display:block;font:500 14px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.08em;color:var(--gold);margin-bottom:var(--s3)}
+.claims .num{color:var(--num,var(--gold))}
+@media (prefers-color-scheme:dark){.claims .num{color:var(--num,var(--gold-on-navy))}}
+@media (prefers-color-scheme:dark){.claim{color:var(--claim,#FFFFFF)}}
+@media (max-width:640px){.claims{padding:var(--s5) 0 var(--s6)}.claim{padding:var(--s4) 0}}

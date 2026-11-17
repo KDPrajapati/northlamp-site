@@ -1,13 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html data-upg="BC" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <title>NORTHLAMP: the daily report nobody has to make</title>
 <meta name="description" content="NORTHLAMP is a 64-bit Windows app that reads the books you already keep and shows what they mean. It never writes to your accounting software.">
-<link rel="icon" href="shared/assets/northlamp_icon_64.png">
+<link rel="icon" type="image/png" href="shared/assets/northlamp_icon_starC_64.png">
 <link rel="stylesheet" href="shared/base.css">
+<link rel="stylesheet" href="shared/redesign.css">
+<script>(function(){try{var c=navigator.connection;if(matchMedia("(prefers-reduced-motion: reduce)").matches||(c&&c.saveData)||location.hash||sessionStorage.getItem("nl-opening"))return;document.documentElement.classList.add("op-on")}catch(e){}})();</script>
 <style>
   /* BC_theme: C "Window" light + B "Night lamp" dark. Built on variant C: Product first: a centred promise, then the app itself. */
   html{scroll-padding-top:88px}
@@ -92,7 +94,7 @@
      chosen by the visitor's system setting. Layout and words are C's, unchanged. */
   .brand picture,.bar picture{display:contents}
   @media (prefers-color-scheme:dark){
-    :root{--paper:#131F31;--card:#1B2A41;--ink:#E8EDF3;--muted:#C3CCD8;--line:rgba(232,237,243,.16);--line-2:rgba(232,237,243,.28)}
+    :root{--paper:#0A0B0E;--card:#111317;--ink:#E8EDF3;--muted:#C3CCD8;--line:rgba(232,237,243,.16);--line-2:rgba(232,237,243,.28)}
     body{background:var(--paper);color:var(--ink)}
     h1,h2,h3{color:#FFFFFF}
     a{color:#FFFFFF}
@@ -100,21 +102,21 @@
     .shot-link:focus-visible{outline-color:var(--navy)}  /* the ring sits on the light screenshot: navy, 13.6:1 */
     .top{background:var(--paper)}
     .brand,.nav{color:#E8EDF3}
-    .hero{background:linear-gradient(180deg,#131F31,#1B2A41)}
+    .hero{background:linear-gradient(180deg,#0A0B0E,#111317)}
     .lamp{color:var(--gold-on-navy)}
     .hero .sub,.lede{color:var(--muted)}
     .btn{background:#FFFFFF;color:var(--navy)}
     .btn:hover{background:var(--navy-soft)}
     .btn:active{background:#D5DDE7}
-    .window{background:#1B2A41}
-    section.white{background:#1B2A41}
+    .window{background:#111317}
+    section.white{background:#111317}
     .places b,figcaption b{color:#FFFFFF}
-    .panel{background:#1B2A41}
-    section.white .panel{background:#243752}
+    .panel{background:#111317}
+    section.white .panel{background:#1A1D23}
     .frame{box-shadow:0 1px 3px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.30)}
     .frame .bar{background:#FBFAF8;color:#4A5568;border-bottom-color:#DDD8CF}  /* the app is light: its title bar stays light */
-    .bands .b1{background:#243752;color:#E8EDF3;border-color:#8592A6}
-    .bands .b2{background:#33496B;color:#FFFFFF;border-color:#8592A6}
+    .bands .b1{background:#1A1D23;color:#E8EDF3;border-color:#8592A6}
+    .bands .b2{background:#262A32;color:#FFFFFF;border-color:#8592A6}
     .bands .b3{background:#C3CCD8;color:var(--navy)}
     .bands .b3 b{color:var(--navy)}
     .bands div b{color:inherit}
@@ -133,7 +135,7 @@
   @media (max-width:640px){.counts h2{font-size:24px}}
   /* Hero film (C-060). The box keeps the film's own shape, so nothing is cropped. */
   .film{background:transparent;padding:var(--s3) 16px 0}
-  .film-box{position:relative;margin:0 auto;aspect-ratio:16/9;width:min(100%,calc(42vh * 16 / 9));width:min(100%,calc(42svh * 16 / 9));background:#0B1322;border-radius:12px;overflow:hidden}
+  .film-box{position:relative;margin:0 auto;aspect-ratio:16/9;width:min(100%,calc(42vh * 16 / 9));width:min(100%,calc(42svh * 16 / 9));background:#030305;border-radius:12px;overflow:hidden}
   .film-box:focus{outline:none}
   .film-box img,.film-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
   .film-skip{position:absolute;right:12px;top:12px;z-index:2;min-height:44px;min-width:44px;padding:0 16px;border:1px solid rgba(255,255,255,.55);
@@ -142,13 +144,74 @@
   .film-skip:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
   .film-made{margin:var(--s2) auto 0;padding:0 16px;text-align:center;font-size:13px;color:var(--muted)}
   @media (max-aspect-ratio:3/4){.film-box{aspect-ratio:9/16;width:min(100%,calc(50vh * 9 / 16));width:min(100%,calc(50svh * 9 / 16))}}
+
+  /* ---- variant E ---- */
+  .opening-e{position:fixed;inset:0;width:100%;height:100%;z-index:100;display:block}
+  .hero{position:relative;padding:0;min-height:100svh;display:flex;align-items:flex-end;text-align:left;overflow:hidden;
+    background:radial-gradient(60vw 60vw at 78% 18%,rgba(226,182,81,.16),rgba(226,182,81,0) 60%),var(--paper)}
+  .top{position:absolute;left:0;right:0;background:transparent;border-bottom:0}
+  .hero-mark{position:absolute;top:15svh;right:max(var(--s4),calc((100vw - 1120px)/2 + var(--s4)));width:min(26vw,320px);aspect-ratio:1}
+  .hero-mark picture{display:contents}
+  .hero-mark img{display:block;width:100%;height:100%}
+  .hero-mark::after{content:"";position:absolute;left:68.75%;top:6.25%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+    background:radial-gradient(closest-side,rgba(255,246,228,.9),rgba(242,205,120,.35) 22%,rgba(226,182,81,0) 70%)}
+  .op-on:not(.op-settling) .hero-mark{visibility:hidden}
+  .hero-copy{position:relative;width:100%;padding-bottom:clamp(40px,9svh,96px)}
+  .hero .lamp{margin:0 0 var(--s2)}
+  .hero h1{font-size:clamp(44px,7.4vw,112px);line-height:.98;letter-spacing:-.03em;font-weight:600;margin:0 0 var(--s5);max-width:11ch}
+  .hero .btn{padding:18px 34px;border-radius:999px;font-size:18px}
+  .hero-more{padding:0 0 var(--s7)}
+  .hero-more .sub{font-family:var(--display);font-size:clamp(22px,2.4vw,34px);line-height:1.3;color:var(--ink);max-width:36ch}
+  .hero-more .fine{margin-left:0}
+  .tour{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--s7) 0}
+  .tour-grid{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:var(--s6);align-items:start}
+  .tour-steps{list-style:none;margin:0;padding:0}
+  .tour-steps h3{font-size:clamp(30px,3.4vw,48px);line-height:1.05;margin:0 0 var(--s3)}
+  .tour-steps p{font-size:19px;color:#2B3442}
+  main{counter-reset:nl}
+  .tour-steps h3::before,.claim::before,section.band h2::before{counter-increment:nl;content:"/" counter(nl,decimal-leading-zero);display:block;font:500 14px/1 ui-monospace,"Cascadia Mono",Consolas,monospace;letter-spacing:.08em;color:#8C6614;margin-bottom:var(--s3)}
+  .claim-band{padding:clamp(72px,14svh,140px) 0}
+  .claim-band .claim{border:0;padding:0;font-size:clamp(34px,5.6vw,84px);line-height:1.02;max-width:20ch}
+  .tour-frames{display:grid;gap:var(--s5)}
+  @media (min-width:901px){
+    .tour-steps li{min-height:58svh;display:flex;flex-direction:column;justify-content:center;opacity:.7;transition:opacity .4s ease-out}
+    .tour-steps li.on{opacity:1}
+    .tour:not(.tour-js) .tour-steps li{opacity:1}
+    .tour-pin{position:sticky;top:12svh}
+    .tour-js .tour-frames{gap:0}
+    .tour-js .tour-frames figure{grid-area:1/1;opacity:0;visibility:hidden;transform:scale(.97);transition:opacity .5s ease-out,transform .7s cubic-bezier(.2,.7,.2,1),visibility 0s .5s}
+    .tour-js .tour-frames figure.on{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease-out,transform .7s cubic-bezier(.2,.7,.2,1)}
+  }
+  @media (prefers-reduced-motion:reduce){.tour-js .tour-frames figure,.tour-steps li{transition:none}}
+  #owners .split{grid-template-columns:minmax(0,1fr)}
+  section.band{padding:128px 0}
+  h2{font-size:clamp(34px,5vw,72px);line-height:1.02;letter-spacing:-.02em}
+  .inv-head{font-size:clamp(36px,5.6vw,80px);max-width:16ch}
+  .t-shot{max-width:1120px}
+  @media (prefers-color-scheme:dark){
+    .hero{background:radial-gradient(60vw 60vw at 78% 18%,rgba(226,182,81,.14),rgba(226,182,81,0) 60%),var(--paper)}
+    .hero-more .sub{color:#FFFFFF} .tour{background:var(--card)} .tour-steps p{color:var(--muted)}
+    .tour-steps h3::before,.claim::before,section.band h2::before{color:var(--gold-on-navy)}
+  }
+  @media (max-width:900px){
+    .tour-grid{grid-template-columns:1fr}
+    .tour-steps li{padding:var(--s3) 0;border-top:1px solid var(--line)}
+    .tour-steps li:first-child{border-top:0}
+  }
+  @media (max-width:640px){
+    .hero-mark{top:128px;left:50%;right:auto;transform:translateX(-50%);width:46vw}
+    .hero h1{font-size:44px}
+    .hero-copy{padding-bottom:48px}
+    .tour{padding:var(--s6) 0}
+    section.band{padding:var(--s6) 0}
+  }
 </style>
-</head>
+<style>html.op-on:not(.op-settling){background:#030305}html.op-on:not(.op-settling) body{visibility:hidden;background:#030305}html.op-on .opening-e{visibility:visible}</style><style>.frame{position:relative;overflow:hidden}.frame::after{content:"";position:absolute;inset:-10% -10%;pointer-events:none;z-index:3;background:linear-gradient(105deg,transparent 26%,rgba(214,160,52,.38) 40%,rgba(236,190,90,.78) 48%,rgba(255,236,170,.95) 50%,rgba(236,190,90,.78) 52%,rgba(214,160,52,.38) 60%,transparent 74%);transform:translateX(-140%)}.frame.nl-swept::after{animation:nlsweep .9s cubic-bezier(.35,.55,.3,1) forwards}@keyframes nlsweep{to{transform:translateX(140%)}}.nl-div{position:relative;height:2px;width:min(1200px,calc(100% - 48px));margin:0 auto var(--s5)}.nl-div b{position:absolute;left:0;top:0;height:2px;width:100%;border-radius:2px;background:linear-gradient(90deg,rgba(200,151,43,.1),#C8972B 70%,#E2B651);box-shadow:0 0 8px rgba(226,182,81,.6);transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.35,.55,.3,1)}.nl-div i{position:absolute;left:0;top:-19px;width:40px;height:40px;margin-left:-20px;opacity:0;transition:left 1.2s cubic-bezier(.35,.55,.3,1),opacity .25s}.nl-div i svg{display:block}.nl-div.nl-drawn b{transform:scaleX(1)}.nl-div.nl-drawn i{left:100%;opacity:1}</style></head>
 <body>
 <a class="skip" href="#main">Skip to the page</a>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#main" aria-label="NORTHLAMP, top of page"><picture><source srcset="shared/assets/northlamp_mark_dark.svg" media="(prefers-color-scheme: dark)"><img src="shared/assets/northlamp_mark.svg" alt=""></picture><span class="wordmark">NORTHLAMP</span></a>
+    <a class="brand" href="#main" aria-label="NORTHLAMP, top of page"><picture><source srcset="shared/assets/northlamp_mark_starC_dark.svg" media="(prefers-color-scheme: dark)"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></picture><span class="wordmark">NORTHLAMP</span></a>
     <nav class="nav" aria-label="Page">
       <a href="#targets">Sales targets</a>
       <a href="#owners">For owners</a>
@@ -159,40 +222,49 @@
 </header>
 
 <main id="main">
-<section class="film" aria-label="Opening film">
-  <div class="film-box" tabindex="-1">
-    <picture><source media="(max-aspect-ratio: 3/4)" srcset="shared/film/poster_9x16.jpg" width="1080" height="1920"><img src="shared/film/poster_16x9.jpg" width="1920" height="1080" alt="NORTHLAMP" fetchpriority="high"></picture>
-    <button type="button" class="film-skip" hidden>Skip film</button>
-  </div>
-  <p class="film-made" hidden>Opening shot made with Google Gemini.</p>
-</section>
 <section class="hero" id="download" data-ground="auto">
+  <div class="hero-mark" aria-hidden="true"><picture><source srcset="shared/assets/northlamp_mark_starC_dark.svg" media="(prefers-color-scheme: dark)"><img data-mark-target src="shared/assets/northlamp_mark_starC.svg" width="64" height="64" alt=""></picture></div>
+  <div class="wrap hero-copy">
+      <p class="lamp lamp-line rise">A lamp for your books.</p>
+      <h1 class="rise" style="--d:.12s">The daily report nobody has to make.</h1>
+      <div class="cta rise" style="--d:.34s"><a class="btn" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download for Windows (64-bit)</a></div>
+  </div>
+</section>
+<section class="hero-more">
   <div class="wrap">
-    <p class="lamp lamp-line">A lamp for your books.</p>
-    <h1>The daily report nobody has to make.</h1>
-    <p class="sub">Bring in your books and see who owes you, for how long, and what is running short. Paid plans add a price floor that counts your running costs.</p>
-    <a class="btn" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download for Windows (64-bit)</a>
+    <p class="sub rise" style="--d:.5s">Bring in your books and see who owes you, for how long, and what is running short. Paid plans add a price floor that counts your running costs.</p>
     <p class="works">Works with: Tally. More accounting software to follow.</p>
     <p class="fine">The installer is not code-signed yet, so Windows may warn about an unrecognised publisher. Choose More info, then Run anyway.</p>
   </div>
 </section>
-
-<div class="window">
-  <div class="wrap">
-    <figure>
-      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_today_1920x1080_v4.png"><img src="shared/shots/b826_hub_today_1920x1080_v4.png" width="1920" height="1080" alt="Today on a demo book: Clients to call comes first, then four cards to act on: Extend more credit, Reorder or stop buying, Reprice or hold, and Can you safely spend on stock."></a></span></div>
+<section class="tour" aria-label="The app">
+  <div class="wrap tour-grid">
+    <ol class="tour-steps">
+      <li><h3>Today</h3><p>The Today page lists what needs you, then the rest to act on.</p></li>
+      <li><h3>Money</h3><p>Who owes you, how old the unpaid invoices are, and whom to call first.</p></li>
+      <li><h3>Clients</h3><p>Who buys from you, and how much.</p></li>
+    </ol>
+    <div class="tour-pin"><div class="tour-frames">
+      <figure>
+      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_today_1920x1080_v4.png"><img src="shared/shots/b826_hub_today_1920x1080_v4.png" width="1920" height="1080" alt="Today on a demo book: Clients to call comes first, then four cards to act on: Extend more credit, Reorder or stop buying, Reprice or hold, and Can you safely spend on stock."></a></span></div>
       <figcaption><b>Today</b>Clients to call first, then the cards to act on.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption>
     </figure>
+      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_money_1920x1080_v4.png"><img src="shared/shots/b826_hub_money_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Money on a demo book: billed and received this year, who owes you, and payment reminders."></a></span></div>
+        <figcaption><b>Money</b>Billed and received, who owes you, and payment reminders.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
+      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_clients_1920x1080_v3.png"><img src="shared/shots/b826_hub_clients_1920x1080_v3.png" width="1920" height="1080" loading="lazy" alt="Clients on a demo book: the directory ranked by sales, a client profile, and buying shifts by product."></a></span></div>
+        <figcaption><b>Clients</b>The directory by sales, a client profile, and buying shifts.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
+    </div></div>
   </div>
-</div>
+</section>
 
+<section class="claim-band"><div class="wrap"><p class="claim">It never writes to your accounting software.</p></div></section>
 <section class="band white" id="targets">
   <div class="wrap">
     <div class="head-row">
       <h2>Targets, incentives and contests, from the books you already keep.</h2>
       <p class="lede">Added in Update 48, on the Team page, on Enterprise and above. The owner sees it, and so does any login allowed to open Team rankings.</p>
     </div>
-    <figure class="t-shot"><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view" style="--pos:0 -150px"><a class="shot-link" href="shared/shots/b826_team_targets_1920x1080_v4.png"><img src="shared/shots/b826_team_targets_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Sales targets on a demo book: a Most new clients contest with its prize, then each salesperson's year so far against target, with the incentive earned and the April increment."></a></span></div><figcaption><b>Sales targets</b>A contest with its prize, then each salesperson against target.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
+    <figure class="t-shot"><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view" style="--pos:0 -150px"><a class="shot-link" href="shared/shots/b826_team_targets_1920x1080_v4.png"><img src="shared/shots/b826_team_targets_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Sales targets on a demo book: a Most new clients contest with its prize, then each salesperson's year so far against target, with the incentive earned and the April increment."></a></span></div><figcaption><b>Sales targets</b>A contest with its prize, then each salesperson against target.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
     <figure class="figure-bands">
       <div class="bands" role="img" aria-label="April increment by share of target: under 80% of target, 0 to 3%; 80 to 100%, 5 to 8%; over 100%, 10 to 15%, reaching 15% at 130% of target.">
         <div class="b1">Under 80% of target<b>0 to 3%</b></div>
@@ -212,6 +284,7 @@
   </div>
 </section>
 
+<section class="claim-band"><div class="wrap"><p class="claim">It runs on your own PC.</p></div></section>
 <section class="band" id="owners">
   <div class="wrap split">
     <div>
@@ -226,15 +299,10 @@
       </ul>
       <p>Money, Clients, Inventory and Prices are each a set of cards. A card gives one figure in one sentence, or says what it still needs, such as a bank statement.</p>
     </div>
-    <div class="stack">
-      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_money_1920x1080_v4.png"><img src="shared/shots/b826_hub_money_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Money on a demo book: billed and received this year, who owes you, and payment reminders."></a></span></div>
-        <figcaption><b>Money</b>Billed and received, who owes you, and payment reminders.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
-      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_clients_1920x1080_v3.png"><img src="shared/shots/b826_hub_clients_1920x1080_v3.png" width="1920" height="1080" loading="lazy" alt="Clients on a demo book: the directory ranked by sales, a client profile, and buying shifts by product."></a></span></div>
-        <figcaption><b>Clients</b>The directory by sales, a client profile, and buying shifts.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
-    </div>
   </div>
 </section>
 
+<section class="claim-band"><div class="wrap"><p class="claim">After every live read it checks its figures against the accounting software's own totals.</p></div></section>
 <section class="band panels">
   <div class="wrap pair">
     <div class="panel">
@@ -319,7 +387,8 @@
   </div>
 </footer>
 <script src="shared/motion/site-motion.js" defer></script>
-<script src="shared/film/hero-film.js" defer></script>
+<script src="shared/motion/opening-s4dC.js" defer></script>
+<script src="shared/motion/tour.js" defer></script>
 <script data-goatcounter="https://northlamp.goatcounter.com/count" async src="shared/stats/goatcounter-count.js"></script>
-</body>
+<script src="shared/motion/upgrades.js" defer></script></body>
 </html>
