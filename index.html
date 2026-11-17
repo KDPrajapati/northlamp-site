@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>NORTHLAMP: the daily report nobody has to make</title>
+<meta name="description" content="NORTHLAMP is a 64-bit Windows app that reads the books you already keep and shows what they mean. It never writes to your accounting software.">
+<link rel="icon" href="shared/assets/northlamp_icon_64.png">
+<link rel="stylesheet" href="shared/base.css">
+<style>
+  /* BC_theme: C "Window" light + B "Night lamp" dark. Built on variant C: Product first: a centred promise, then the app itself. */
+  html{scroll-padding-top:88px}
+  .top{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);min-height:68px}
+  .brand{color:var(--navy)}
+  .nav{display:flex;align-items:center;gap:var(--s4);font-size:16px;color:var(--navy)}
+
+  .hero{padding:var(--s5) 0 var(--s4);text-align:center}
+  .lamp{font-size:24px;line-height:1.3;color:var(--gold);margin:var(--s2) auto var(--s4)}  /* 24 px: WCAG large text, so 4.06:1 passes */
+  .hero h1{font-size:56px;line-height:1.08;margin:0 auto var(--s3)}
+  .hero .sub{font-size:20px;color:#2B3442;margin:0 auto var(--s4);max-width:64ch}
+  .hero .works{margin-left:auto;margin-right:auto}
+  .fine{font-size:14px;color:var(--muted);max-width:56ch;margin:var(--s2) auto 0}
+
+  .window{padding:0 0 var(--s7)}
+  .window .frame{max-width:880px;margin:0 auto}
+  .window figcaption{text-align:center}
+
+  section.band{padding:var(--s7) 0}
+  section.white{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  h2{font-size:40px;line-height:1.15;margin-bottom:var(--s3)}
+  h3{font-size:20px;line-height:1.3;margin-bottom:6px}
+  .lede{font-size:19px;color:#2B3442}
+  .head-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);align-items:end}
+  .head-row h2{margin:0}
+  .head-row p{margin:0}
+  .t-shot{max-width:880px;margin:var(--s5) auto 0}
+  .t-shot figcaption{text-align:center}
+  .figure-bands{margin:var(--s5) 0}
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);border-top:1px solid var(--line-2);padding-top:var(--s4)}
+  .facts p{margin:0;font-size:16px}
+  .small{font-size:15px;color:var(--muted);margin-top:var(--s5)}
+
+  .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s6);align-items:start}
+  .places{list-style:none;margin:var(--s4) 0;padding:0}
+  .places li{padding:var(--s2) 0;border-top:1px solid var(--line)}
+  .places li:last-child{border-bottom:1px solid var(--line)}
+  .places b{font:500 20px/1.3 var(--display);color:var(--navy);margin-right:10px}
+  .places em{font-style:normal;color:var(--muted);font-size:15px}
+  .stack{display:grid;gap:var(--s4)}
+
+  .panels{border-top:1px solid var(--line)}
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);align-items:start}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:var(--s5)}
+  .panel h2{font-size:30px}
+
+  .inv-head{text-align:center;max-width:22ch;margin:0 auto var(--s6);font-size:44px}
+  .inv .two{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+  .inv h3{margin-top:var(--s5)}
+  .inv .col h3:first-child{margin-top:0}
+  footer{padding:var(--s5) 0 var(--s6);font-size:15px;color:var(--muted);border-top:1px solid var(--line)}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2) var(--s4)}
+  footer a{display:inline-flex;align-items:center;min-height:44px}
+
+  @media (max-width:900px){
+    .head-row,.split,.pair,.inv .two{grid-template-columns:1fr}
+    .head-row{gap:var(--s3)}
+    .facts{grid-template-columns:1fr 1fr}
+    .hero h1{font-size:44px}
+  }
+  @media (max-width:640px){
+    .nav .nav-dl{display:none}   /* the hero has the Download button; keeps the header under 1/6 of a phone screen */
+    html{scroll-padding-top:0}
+    .top{position:static}
+    .top .wrap{flex-wrap:wrap;padding-top:var(--s1);padding-bottom:var(--s1);gap:0 var(--s3)}
+    .nav{flex-wrap:wrap;gap:0 var(--s3);font-size:15px}
+    .hero{padding:var(--s5) 0 var(--s4)}
+    .lamp{margin-bottom:var(--s3)}
+    .hero h1{font-size:36px}
+    .hero .sub,.lede{font-size:17px}
+    .window{padding-bottom:var(--s6)}
+    section.band{padding:var(--s6) 0}
+    h2{font-size:28px}
+    .inv-head{font-size:30px;margin-bottom:var(--s5)}
+    .facts{grid-template-columns:1fr}
+    .panel{padding:var(--s4) var(--s3)}
+    .panel h2{font-size:26px}
+  }
+
+  /* BC theme: C "Window" is the light look; B "Night lamp" colours are the dark look,
+     chosen by the visitor's system setting. Layout and words are C's, unchanged. */
+  .brand picture,.bar picture{display:contents}
+  @media (prefers-color-scheme:dark){
+    :root{--paper:#131F31;--card:#1B2A41;--ink:#E8EDF3;--muted:#C3CCD8;--line:rgba(232,237,243,.16);--line-2:rgba(232,237,243,.28)}
+    body{background:var(--paper);color:var(--ink)}
+    h1,h2,h3{color:#FFFFFF}
+    a{color:#FFFFFF}
+    :focus-visible{outline-color:#E8EDF3}
+    .shot-link:focus-visible{outline-color:var(--navy)}  /* the ring sits on the light screenshot: navy, 13.6:1 */
+    .top{background:var(--paper)}
+    .brand,.nav{color:#E8EDF3}
+    .hero{background:linear-gradient(180deg,#131F31,#1B2A41)}
+    .lamp{color:var(--gold-on-navy)}
+    .hero .sub,.lede{color:var(--muted)}
+    .btn{background:#FFFFFF;color:var(--navy)}
+    .btn:hover{background:var(--navy-soft)}
+    .btn:active{background:#D5DDE7}
+    .window{background:#1B2A41}
+    section.white{background:#1B2A41}
+    .places b,figcaption b{color:#FFFFFF}
+    .panel{background:#1B2A41}
+    section.white .panel{background:#243752}
+    .frame{box-shadow:0 1px 3px rgba(0,0,0,.35),0 8px 24px rgba(0,0,0,.30)}
+    .frame .bar{background:#FBFAF8;color:#4A5568;border-bottom-color:#DDD8CF}  /* the app is light: its title bar stays light */
+    .bands .b1{background:#243752;color:#E8EDF3;border-color:#8592A6}
+    .bands .b2{background:#33496B;color:#FFFFFF;border-color:#8592A6}
+    .bands .b3{background:#C3CCD8;color:var(--navy)}
+    .bands .b3 b{color:var(--navy)}
+    .bands div b{color:inherit}
+  }
+
+  /* Motion (shared/motion/site-motion.js). Still page = the same page with no script or reduced motion. */
+  @media (min-width:641px){
+    .hero{padding-top:var(--s4)}
+    .hero .wrap{position:relative}
+  }
+
+  /* The visit-counter note. */
+  .counts{padding:var(--s6) 0;border-top:1px solid var(--line)}
+  .counts h2{font-size:28px}
+  .counts p{font-size:16px}
+  @media (max-width:640px){.counts h2{font-size:24px}}
+  /* Hero film (C-060). The box keeps the film's own shape, so nothing is cropped. */
+  .film{background:transparent;padding:var(--s3) 16px 0}
+  .film-box{position:relative;margin:0 auto;aspect-ratio:16/9;width:min(100%,calc(42vh * 16 / 9));width:min(100%,calc(42svh * 16 / 9));background:#0B1322;border-radius:12px;overflow:hidden}
+  .film-box:focus{outline:none}
+  .film-box img,.film-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+  .film-skip{position:absolute;right:12px;top:12px;z-index:2;min-height:44px;min-width:44px;padding:0 16px;border:1px solid rgba(255,255,255,.55);
+    border-radius:8px;background:rgba(11,19,34,.72);color:#FFFFFF;font:inherit;font-size:15px;cursor:pointer}
+  .film-skip:hover{background:rgba(11,19,34,.92)}
+  .film-skip:focus-visible{outline:2px solid #FFFFFF;outline-offset:2px}
+  .film-made{margin:var(--s2) auto 0;padding:0 16px;text-align:center;font-size:13px;color:var(--muted)}
+  @media (max-aspect-ratio:3/4){.film-box{aspect-ratio:9/16;width:min(100%,calc(50vh * 9 / 16));width:min(100%,calc(50svh * 9 / 16))}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#main" aria-label="NORTHLAMP, top of page"><picture><source srcset="shared/assets/northlamp_mark_dark.svg" media="(prefers-color-scheme: dark)"><img src="shared/assets/northlamp_mark.svg" alt=""></picture><span class="wordmark">NORTHLAMP</span></a>
+    <nav class="nav" aria-label="Page">
+      <a href="#targets">Sales targets</a>
+      <a href="#owners">For owners</a>
+      <a href="#investors">For investors</a>
+      <a class="nav-dl" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="film" aria-label="Opening film">
+  <div class="film-box" tabindex="-1">
+    <picture><source media="(max-aspect-ratio: 3/4)" srcset="shared/film/poster_9x16.jpg" width="1080" height="1920"><img src="shared/film/poster_16x9.jpg" width="1920" height="1080" alt="NORTHLAMP" fetchpriority="high"></picture>
+    <button type="button" class="film-skip" hidden>Skip film</button>
+  </div>
+  <p class="film-made" hidden>Opening shot made with Google Gemini.</p>
+</section>
+<section class="hero" id="download" data-ground="auto">
+  <div class="wrap">
+    <p class="lamp lamp-line">A lamp for your books.</p>
+    <h1>The daily report nobody has to make.</h1>
+    <p class="sub">Bring in your books and see who owes you, for how long, and what is running short. Paid plans add a price floor that counts your running costs.</p>
+    <a class="btn" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download for Windows (64-bit)</a>
+    <p class="works">Works with: Tally. More accounting software to follow.</p>
+    <p class="fine">The installer is not code-signed yet, so Windows may warn about an unrecognised publisher. Choose More info, then Run anyway.</p>
+  </div>
+</section>
+
+<div class="window">
+  <div class="wrap">
+    <figure>
+      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_today_1920x1080_v4.png"><img src="shared/shots/b826_hub_today_1920x1080_v4.png" width="1920" height="1080" alt="Today on a demo book: Clients to call comes first, then four cards to act on: Extend more credit, Reorder or stop buying, Reprice or hold, and Can you safely spend on stock."></a></span></div>
+      <figcaption><b>Today</b>Clients to call first, then the cards to act on.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption>
+    </figure>
+  </div>
+</div>
+
+<section class="band white" id="targets">
+  <div class="wrap">
+    <div class="head-row">
+      <h2>Targets, incentives and contests, from the books you already keep.</h2>
+      <p class="lede">Added in Update 48, on the Team page, on Enterprise and above. The owner sees it, and so does any login allowed to open Team rankings.</p>
+    </div>
+    <figure class="t-shot"><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view" style="--pos:0 -150px"><a class="shot-link" href="shared/shots/b826_team_targets_1920x1080_v4.png"><img src="shared/shots/b826_team_targets_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Sales targets on a demo book: a Most new clients contest with its prize, then each salesperson's year so far against target, with the incentive earned and the April increment."></a></span></div><figcaption><b>Sales targets</b>A contest with its prize, then each salesperson against target.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
+    <figure class="figure-bands">
+      <div class="bands" role="img" aria-label="April increment by share of target: under 80% of target, 0 to 3%; 80 to 100%, 5 to 8%; over 100%, 10 to 15%, reaching 15% at 130% of target.">
+        <div class="b1">Under 80% of target<b>0 to 3%</b></div>
+        <div class="b2">80 to 100%<b>5 to 8%</b></div>
+        <div class="b3">Over 100%<b>10 to 15%</b></div>
+      </div>
+      <div class="bands-scale" aria-hidden="true"><span>0% of target</span><span>80%</span><span>100%<em>130%</em></span></div>
+      <figcaption>The April increment rises with the share of target reached.</figcaption>
+    </figure>
+    <div class="facts">
+      <div><h3>Targets from last year</h3><p>Each salesperson's target is that person's own sales over the same dates last financial year, plus a percentage you set. Use one percentage for everyone, or give each person their own.</p></div>
+      <div><h3>Incentive on money received</h3><p>The incentive is a share of the money received, never the amount billed. You set the share for each person.</p></div>
+      <div><h3>Contests</h3><p>Pick any of four: most new clients, fastest collection, most of one product sold, most profitable. Contests run for a month or a quarter, with a rupee prize you type. Fastest collection reads today's balances against the last 365 days of sales. A leader is named once two salespeople have figures to compare.</p></div>
+      <div><h3>The April increment</h3><p>For each person with a target, the page shows the increment the year so far would earn if the year ended today. Inside a band it rises evenly; the top band reaches 15% at 130% of target.</p></div>
+    </div>
+    <p class="small">Salespeople are the ledger groups your clients sit under today. A client's sales, last year's too, count for the person whose group it sits under now. When a client is linked to more than one person, you pick who gets it. Targets count sales before GST. When a salesperson's first sale falls partway through last year's dates, last year is scaled up to the full period, and the page says so. Under 3 months is too new for a target.</p>
+  </div>
+</section>
+
+<section class="band" id="owners">
+  <div class="wrap split">
+    <div>
+      <h2>What you see</h2>
+      <p class="lede">The Today page lists what needs you, then the rest to act on. Across the top: Money, Clients, Inventory, Prices and, on Enterprise and above, Team.</p>
+      <ul class="places">
+        <li><b>Money</b>Who owes you, how old the unpaid invoices are, and whom to call first.</li>
+        <li><b>Clients</b>Who buys from you, and how much.</li>
+        <li><b>Inventory</b>What is short and the last day to order it, what is sitting dead, and the stock on a date you pick.</li>
+        <li><b>Prices</b>Selling price and cost.</li>
+        <li><b>Team</b>Who sells, and how much. <em>Enterprise and above.</em></li>
+      </ul>
+      <p>Money, Clients, Inventory and Prices are each a set of cards. A card gives one figure in one sentence, or says what it still needs, such as a bank statement.</p>
+    </div>
+    <div class="stack">
+      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_money_1920x1080_v4.png"><img src="shared/shots/b826_hub_money_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Money on a demo book: billed and received this year, who owes you, and payment reminders."></a></span></div>
+        <figcaption><b>Money</b>Billed and received, who owes you, and payment reminders.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
+      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_clients_1920x1080_v3.png"><img src="shared/shots/b826_hub_clients_1920x1080_v3.png" width="1920" height="1080" loading="lazy" alt="Clients on a demo book: the directory ranked by sales, a client profile, and buying shifts by product."></a></span></div>
+        <figcaption><b>Clients</b>The directory by sales, a client profile, and buying shifts.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">The picture shows the top of the screen; click or tap it to see all of it.</span><span class="note-full">Click or tap the picture to see it full size.</span></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="band panels">
+  <div class="wrap pair">
+    <div class="panel">
+      <h2>Plans</h2>
+      <ul class="plain">
+        <li>Four plans: Free, Pro, Enterprise and Tycoon.</li>
+        <li>Free reads a file you export from your accounting software. The paid plans read it live over your network, with no manual export.</li>
+        <li>Pro is for the owner alone.</li>
+        <li>On Enterprise and above, staff get their own login. You pick the screens it opens; every login also opens Today.</li>
+        <li>Run a group of companies? Enterprise reads up to 3 companies' books, Tycoon up to 5.</li>
+        <li>To get a licence, e-mail <a href="mailto:krupeshdprajapati@gmail.com">krupeshdprajapati@gmail.com</a>.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>How it treats your books</h2>
+      <ul class="plain">
+        <li>It runs on your own PC. Your sales, clients, prices and stock live in a file on that PC.</li>
+        <li>It never writes to your accounting software. Every request it sends there is a read, the same kind made when you print a report.</li>
+        <li>Nothing from your books leaves your PC unless you use a feature that sends it, such as off-site backup to a cloud you choose, the optional AI assistant, sharing with your other laptops, or web search. WhatsApp order collection only reads orders in.</li>
+        <li>On a paid plan or a trial the internet features stay shut until you switch them on. On the Free plan, installed for one user, they normally start on. You can shut them under Settings, Internet access. The WhatsApp message buttons are on for every plan; they only open a chat you send yourself.</li>
+        <li>Off-site backup runs only after you choose a folder or storage address, and stops when you remove it. Sharing runs only after you choose a folder and start it.</li>
+        <li>Apart from features you set up, it sends on its own only a weekly version check and, once a licence key is in (not a trial), a licence check-in: once a day, and every 10 minutes on the main PC or any PC not approved. None of these carries figures from your books. The app's About page describes the version check and the daily check-in, and Airplane mode blocks them all.</li>
+        <li>After every live read it checks its figures against your accounting software's own totals, and Today's full list of things to act on says in one line which match, which do not and which were not checked.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band white inv" id="investors" aria-labelledby="inv-h">
+  <div class="wrap">
+    <h2 class="inv-head" id="inv-h">A lamp for the people who run a business.</h2>
+    <div class="two">
+      <div class="col">
+        <h3>The problem</h3>
+        <p>Every business keeps books. Few of the people who run one get to read them. The answers sit in the accounting software, where owners are rightly careful about touching anything, so they ask their teams instead and wait.</p>
+        <h3>The product</h3>
+        <p>NORTHLAMP runs on the owner's Windows PC, leaves the books where they are, and never writes to the accounting software. It brings the answers together in one app: what is owed, who is slipping, what is short, what each sale earned. The owner gets the answers without asking the team.</p>
+        <h3>Where it stands</h3>
+        <ul class="plain">
+          <li>It runs on 64-bit Windows only. Each release carries a signed manifest, and when the app updates itself, it refuses any download that does not match it.</li>
+          <li>In use at an early customer.</li>
+          <li>Four plans: Free, Pro, Enterprise and Tycoon.</li>
+          <li>After every live read it checks its figures against the accounting software's own totals.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>How it started</h3>
+        <p>Krupesh Prajapati built NORTHLAMP for his own trading businesses. Every day he was asking three teams the same questions: accounts for what was owed, marketing for what was selling, dispatch for what had left. He tracked the figures first in a spreadsheet, then in live sheets with scripts, then built a version that read straight from the accounting software. An early customer saw it and wanted it too. He builds it with the help of AI tools.</p>
+        <h3>What next</h3>
+        <ul class="plain">
+          <li>A Mac version is planned.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="band" id="ask" aria-labelledby="ask-h">
+  <div class="wrap" id="contact">
+    <div>
+      <h2 id="ask-h">Ask a question</h2>
+      <p class="lede">E-mail your question to <a href="mailto:krupeshdprajapati@gmail.com">krupeshdprajapati@gmail.com</a>. Krupesh replies by e-mail.</p>
+    </div>
+  </div>
+</section>
+
+<section class="counts" id="counts" aria-labelledby="counts-h">
+  <div class="wrap">
+    <h2 id="counts-h">What this site counts</h2>
+    <p>GoatCounter counts the visits. It sets no cookies and does not store your IP address. The site itself is hosted on GitHub Pages, which logs IP addresses for security.</p>
+    <p>For each visit GoatCounter records the page address and title, the site you came from, your screen width, and, from your connection, your browser, system and country or region. A random visit number links the pages you view within 8 hours. Only the totals are shown, never single visits.</p>
+    <p>GoatCounter keeps them on servers in Finland and Germany and shares them with no one. This site never asks for your name or e-mail.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>NORTHLAMP. Built by Krupesh Prajapati, with the help of AI tools.</span>
+    <span><a href="mailto:krupeshdprajapati@gmail.com">krupeshdprajapati@gmail.com</a></span>
+    <span><a href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download page</a></span>
+    <span><a href="#counts">What this site counts</a></span>
+  </div>
+</footer>
+<script src="shared/motion/site-motion.js" defer></script>
+<script src="shared/film/hero-film.js" defer></script>
+<script data-goatcounter="https://northlamp.goatcounter.com/count" async src="shared/stats/goatcounter-count.js"></script>
+</body>
+</html>

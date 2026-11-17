@@ -1,0 +1,92 @@
+/* NORTHLAMP site v2: shared tokens and base. Static, no third-party requests.
+   Jost is self-hosted (SIL OFL 1.1, see fonts/OFL.txt). Body uses system fonts. */
+@font-face{font-family:"Jost";src:url("fonts/Jost-var.ttf") format("truetype");font-weight:300 700;font-display:swap}
+:root{
+  --navy:#1B2A41; --navy-2:#243752; --navy-deep:#131F31;
+  --gold:#9A7118;          /* gold text on light: 4.06:1 on paper, so WCAG large text only (24 px and up, or 19 px bold) */
+  --gold-mark:#C8972B;     /* the star, decoration only */
+  --gold-on-navy:#E2B651;  /* gold text on navy: 7.59:1 */
+  --paper:#F7F5F2; --card:#FFFFFF; --ink:#111111; --muted:#4A5568;
+  --line:#DDD8CF; --line-2:#C9C4BB; --navy-soft:#E8EDF3;
+  --edge:#6B7A90;          /* a chart part's edge: 4.36:1 on white, 4.01:1 on paper */
+  --s1:8px; --s2:12px; --s3:16px; --s4:24px; --s5:40px; --s6:64px; --s7:96px;
+  --r:14px; --measure:62ch;
+  --sans:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --display:"Jost","Segoe UI",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans)}
+img,svg{max-width:100%;height:auto}
+h1,h2,h3{font-family:var(--display);font-weight:500;color:var(--navy);margin:0;text-wrap:balance}
+p{margin:0 0 var(--s3);max-width:var(--measure);text-wrap:pretty}
+a{color:var(--navy)}
+:focus-visible{outline:2px solid var(--navy);outline-offset:3px;border-radius:4px}  /* 13.27:1 on paper; gold stays for the star and the lamp line */
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--s4)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:8px 12px;z-index:50}
+.skip:focus{left:8px;top:8px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:#fff;text-decoration:none;
+  padding:14px 24px;border-radius:12px;font:500 17px/1.2 var(--sans);min-height:48px;border:1px solid transparent}
+.btn:hover{background:var(--navy-2)}
+.btn:active{background:var(--navy-deep)}
+.btn.on-navy{background:#FFFFFF;color:var(--navy)}
+.btn.on-navy:hover{background:var(--navy-soft)}
+.btn.on-navy:active{background:#D5DDE7}
+.works{color:var(--muted);font-size:15px;margin-top:var(--s2)}
+.wordmark{font-family:var(--display);font-weight:400;letter-spacing:.3em}
+.lamp-line{font-family:var(--display);font-weight:400;letter-spacing:.02em}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
+.brand img{width:30px;height:30px}
+.brand .wordmark{font-size:17px;line-height:1}
+.plain{list-style:none;margin:0;padding:0}
+.plain li{padding:var(--s2) 0;border-top:1px solid var(--line);max-width:62ch}
+.plain li:last-child{border-bottom:1px solid var(--line)}
+.nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;color:inherit}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+/* screenshot placeholder: a calm window frame with a clear label */
+.frame{background:var(--card);border-radius:var(--r);overflow:hidden;outline:1px solid transparent;
+  box-shadow:0 1px 3px rgba(17,17,17,.10),0 8px 24px rgba(27,42,65,.10)}
+/* a Windows title bar: the app's mark and name on the left, as Windows draws it */
+.frame .bar{height:32px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px;background:#FBFAF8;
+  font:400 12px/1 var(--display);letter-spacing:.3em;color:var(--muted)}
+.frame .bar img{width:14px;height:14px}
+.frame .ph{aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  text-align:center;color:var(--navy);background:repeating-linear-gradient(135deg,#F1F3F6 0 14px,#EBEFF4 14px 28px);padding:var(--s3);font-size:15px}
+.frame .ph b{font-family:var(--display);font-weight:500;font-size:20px}
+.frame .ph small{color:var(--muted);font-size:13px}
+figure{margin:0;container-type:inline-size}  /* a figure knows its own width: frame and caption follow it */
+.frame img{display:block;width:100%;height:auto}
+.shot-link{display:block}
+.shot-link:focus-visible{outline-offset:-4px}   /* the frame clips anything outside it */
+/* A frame wide enough to read a screen at 1:1 shows its top-left corner at full size;
+   the whole screen is one click away. The file itself is never cropped or changed. */
+.view{display:block;aspect-ratio:16/9;overflow:hidden}
+.note-crop{display:none}
+@container (min-width:400px){
+  .view{aspect-ratio:var(--ar,16/9)}            /* a crop's own shape applies only when it crops */
+  .view>.shot-link{height:100%}                 /* the focus ring follows the crop, all four sides */
+  .view img{width:100%;height:100%;object-fit:none;object-position:var(--pos,0 0)}
+  .note-crop{display:inline}
+  .note-full{display:none}
+}
+.sample{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+figcaption{font-size:15px;color:var(--muted);padding-top:var(--s2)}
+figcaption b{display:block;color:var(--navy);font-family:var(--display);font-weight:500;font-size:17px}
+/* increment bands: the owner's rule as a drawing, no figures from any book */
+.bands{display:grid;grid-template-columns:80fr 20fr 30fr;gap:4px;margin:var(--s3) 0 var(--s1)}
+.bands div{border-radius:8px;padding:10px 12px;font-size:14px;line-height:1.35;min-width:0}
+.bands div b{display:block;font:500 17px/1.2 var(--display)}
+.bands .b1{background:#EEF1F5;color:var(--navy);border:1px solid var(--edge)}
+.bands .b2{background:#DCE3EC;color:var(--navy);border:1px solid var(--edge)}
+.bands .b3{background:var(--navy);color:#fff;border:1px solid transparent}
+.bands .b3 b{color:#FFFFFF}
+.bands-scale{display:grid;grid-template-columns:80fr 20fr 30fr;font-size:13px;color:var(--muted)}
+.bands-scale span:nth-child(2),.bands-scale span:nth-child(3){padding-left:2px}
+.bands-scale em{float:right;font-style:normal}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 var(--s3)}
+  .bands,.bands-scale{grid-template-columns:1fr}
+  .bands-scale{display:none}
+}
