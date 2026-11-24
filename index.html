@@ -181,15 +181,6 @@
   .tour-steps{list-style:none;margin:0;padding:0}
   .tour-steps h3{font-size:clamp(30px,3.4vw,48px);line-height:1.05;margin:0 0 var(--s3)}
   .tour-steps p{font-size:19px;color:#2B3442}
-  .show-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s5) var(--s4);margin-top:var(--s5)}
-  .show-card{border-top:1px solid var(--line-2);padding-top:var(--s3)}
-  .show-card h3{margin:0 0 var(--s1)}
-  .show-card p.one{margin:0 0 var(--s2);font-size:16px;color:var(--muted)}
-  .show-card ul{list-style:none;margin:0;padding:0;font-size:15px}
-  .show-card li{padding:6px 0;border-top:1px solid var(--line)}
-  .show-card .tag{display:inline-block;margin-left:8px;padding:1px 8px;border:1px solid var(--line-2);border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--muted);white-space:nowrap;vertical-align:1px}
-  @media (max-width:1024px){.show-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (max-width:640px){.show-grid{grid-template-columns:1fr}}
   .tour-frames{display:grid;gap:var(--s5)}
   @media (min-width:901px){
     .tour-steps li{min-height:58svh;display:flex;flex-direction:column;justify-content:center}
@@ -225,7 +216,9 @@
 @media (prefers-color-scheme:dark){.f2 .ans{background:#1A1D23}}.f2.c{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--s5);align-items:stretch}.rows label{display:block;border-top:1px solid var(--line-2)}.rows label:last-child{border-bottom:1px solid var(--line-2)}.rows span{display:flex;align-items:center;gap:var(--s3);min-height:72px;padding:10px var(--s2);font:500 21px/1.3 var(--display)}.rows span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:2px solid currentColor;box-sizing:border-box}.rows input:checked+span::before{border-width:6px}.rows label:hover span,.rows input:checked+span{background:var(--navy-soft)}
 @media (prefers-color-scheme:dark){.rows label:hover span,.rows input:checked+span{background:#262A32}}
 .f2.c .ans{min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
-@media (max-width:760px){.f2.c{grid-template-columns:1fr;gap:var(--s4)}.rows span{font-size:18px;min-height:64px;padding:10px 4px}.f2.c .ans{min-height:0;padding:var(--s4) var(--s3)}}</style></head>
+@media (max-width:760px){.f2.c{grid-template-columns:1fr;gap:var(--s4)}.rows span{font-size:18px;min-height:64px;padding:10px 4px}.f2.c .ans{min-height:0;padding:var(--s4) var(--s3)}}</style><style>.sv-note{margin:var(--s4) 0 0;font-size:16px}.allf{margin-top:var(--s5);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}.allf summary{cursor:pointer;font:500 20px/1.3 var(--display);padding:18px 0;min-height:44px}.allf-g{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);padding:var(--s2) 0 var(--s4)}.allf-g h3{font-size:20px;margin:0 0 var(--s2)}.allf-g ul{list-style:none;margin:0;padding:0;font-size:15px}.allf-g li{padding:7px 0;border-top:1px solid var(--line)}
+@media (max-width:1024px){.allf-g{grid-template-columns:1fr 1fr}}@media (max-width:640px){.allf-g{grid-template-columns:1fr}}.sv{margin:var(--s5) 0 0;padding:0}.sv div{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s5);padding:22px 0;border-top:1px solid var(--line-2)}.sv div:last-child{border-bottom:1px solid var(--line-2)}.sv dt{font:500 26px/1.25 var(--display);color:var(--navy)}.sv dd{margin:0;font-size:18px;max-width:52ch}
+@media (prefers-color-scheme:dark){.sv dt{color:#fff}}@media (max-width:760px){.sv div{grid-template-columns:1fr;gap:6px;padding:18px 0}.sv dt{font-size:22px}.sv dd{font-size:17px}}</style></head>
 <body>
 <a class="skip" href="#main">Skip to the page</a>
 <header class="top">
@@ -266,7 +259,7 @@
       <figcaption><b>Today</b>Clients to call first, then the cards to act on.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption>
     </figure>
       <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_money_1920x1080_v4.png"><img src="shared/shots/b826_hub_money_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Money on a demo book: billed and received this year, who owes you, and payment reminders."></a></span></div>
-        <figcaption><b>Money</b>Billed, received and owed. Payment reminders on Pro and above.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption></figure>
+        <figcaption><b>Money</b>Billed, received and owed. Payment reminders come with a paid plan.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption></figure>
       <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_clients_1920x1080_v3.png"><img src="shared/shots/b826_hub_clients_1920x1080_v3.png" width="1920" height="1080" loading="lazy" alt="Clients on a demo book: the directory ranked by sales, a client profile, and buying shifts by product."></a></span></div>
         <figcaption><b>Clients</b>Clients ranked by sales, a profile for each, and shifts in what they buy.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption></figure>
     </div></div>
@@ -275,74 +268,10 @@
 
 <section class="band" id="owners">
   <div class="wrap">
-    <h2>Who is winning, what is moving, and where to go next.</h2>
+    <h2>What NORTHLAMP shows you.</h2>
     <p class="lede">Your people, clients, products and suppliers, ranked from the books you already keep.</p>
-    <div class="show-grid">
-      <div class="show-card">
-        <h3>Cash in and out</h3>
-        <p class="one">What is owed, what is due, and what you can spend.</p>
-        <ul>
-<li>Who owes you, oldest debt first</li>
-<li>Who to chase first <span class="tag">Pro</span></li>
-<li>Cash calendar: the next four weeks in and out <span class="tag">Enterprise</span></li>
-<li>Can you afford this purchase, answered in one card <span class="tag">Enterprise</span></li>
-<li>Late-payment interest owed to you as a registered MSME <span class="tag">Enterprise</span></li>
-        </ul>
-      </div>
-      <div class="show-card">
-        <h3>What clients buy</h3>
-        <p class="one">Where your clients&rsquo; buying is shifting, product by product.</p>
-        <ul>
-<li>What your clients buy more or less of than before <span class="tag">Pro</span></li>
-<li>Which clients moved to which product groups <span class="tag">Pro</span></li>
-<li>Clients and products ranked, with growth on last year <span class="tag">Pro</span></li>
-          <li>Suppliers ranked by price <span class="tag">Pro</span></li>
-<li>Products selling below breakeven, named <span class="tag">Pro</span></li>
-<li>Every sale checked against the price that client agreed <span class="tag">Pro</span></li>
-<li>Your rivals&rsquo; prices, kept beside your own <span class="tag">Pro</span></li>
-        </ul>
-      </div>
-      <div class="show-card">
-        <h3>Your team, ranked</h3>
-        <p class="one">Every salesperson, read like a lap time.</p>
-        <ul>
-<li>Ranked by sales, collections, margin and new clients <span class="tag">Enterprise</span></li>
-<li>One score per salesperson, on weights you set <span class="tag">Enterprise</span></li>
-<li>Each person&rsquo;s products, best product and collection rate <span class="tag">Enterprise</span></li>
-<li>Sales targets, and the year so far against them <span class="tag">Enterprise</span></li>
-<li>Contests with prizes: new clients, collection, one product, profit <span class="tag">Enterprise</span></li>
-        </ul>
-      </div>
-      <div class="show-card">
-        <h3>Where you sell</h3>
-        <p class="one">The towns you hold, and the ones you do not.</p>
-        <ul>
-<li>Your clients by town, sized by sales <span class="tag">Enterprise</span></li>
-<li>The towns each salesperson reaches, on a map <span class="tag">Enterprise</span></li>
-<li>Clients overdue for an order, sorted into who is worth a call <span class="tag">Enterprise</span></li>
-<li>Businesses near your towns that are not yet on your book <span class="tag">Pro</span></li>
-        </ul>
-      </div>
-      <div class="show-card">
-        <h3>Floor and stock</h3>
-        <p class="one">What to make, what to buy, what goes out today.</p>
-        <ul>
-<li>What is running low, and a reorder built for you <span class="tag">Pro</span></li>
-<li>Each item you buy: its rate over the months, by supplier <span class="tag">Pro</span></li>
-<li>A production queue, recipes and a demand forecast <span class="tag">Enterprise</span></li>
-<li>WhatsApp orders read in; what was asked for and not supplied <span class="tag">Enterprise</span></li>
-<li>Today&rsquo;s dispatch: which transporter takes which order <span class="tag">Pro</span></li>
-        </ul>
-      </div>
-      <div class="show-card">
-        <h3>Checks and deadlines</h3>
-        <p class="one">The checks a careful owner would run.</p>
-        <ul>
-<li>A compliance calendar of what is due <span class="tag">Tycoon</span></li>
-<li>Findings from your books, raised before you ask <span class="tag">Enterprise</span></li>
-        </ul>
-      </div>
-    </div>
+    <dl class="sv"><div><dt>Who owes you, and who to call first</dt><dd>Every client who owes you, oldest debt first, and the cash going in and out over the next four weeks.</dd></div><div><dt>What clients buy, and what is slipping</dt><dd>Clients and products ranked against last year, and every product selling below breakeven, named.</dd></div><div><dt>Which salesperson is ahead</dt><dd>Salespeople ranked by sales, collections, margin and new clients, with the year so far against their targets.</dd></div><div><dt>Where you can sell more</dt><dd>Your clients by town, the ones overdue for an order, and nearby businesses not yet on your book.</dd></div><div><dt>What to buy, make and send out</dt><dd>What is running low, the production queue, and which transporter takes which order today.</dd></div><div><dt>What is due, and what needs a look</dt><dd>A compliance calendar of what is due, and findings from your books, raised before you ask.</dd></div></dl>
+    <p class="sv-note">Larger plans show more of this. <a href="#plans">See what each plan includes</a>.</p>
   </div>
 </section>
 
@@ -413,6 +342,7 @@
         <p class="next">Also on Tycoon: one morning list across every company, most urgent first, and Rules watch, which shows new RBI notices and tax news with the source and date of each, marked when no official source confirms it. Rules watch stays off until you turn it on. Coming to Tycoon: a WhatsApp group summary.</p>
       </div>
     </div>
+    <details class="allf"><summary>These features, plan by plan</summary><div class="allf-g"><div><h3>Free</h3><ul><li>Who owes you, oldest debt first</li></ul></div><div><h3>Pro adds</h3><ul><li>Who to chase first</li><li>What your clients buy more or less of than before</li><li>Which clients moved to which product groups</li><li>Clients and products ranked, with growth on last year</li><li>Suppliers ranked by price</li><li>Products selling below breakeven, named</li><li>Every sale checked against the price that client agreed</li><li>Your rivals&rsquo; prices, kept beside your own</li><li>Businesses near your towns that are not yet on your book</li><li>What is running low, and a reorder built for you</li><li>Each item you buy: its rate over the months, by supplier</li><li>Today&rsquo;s dispatch: which transporter takes which order</li></ul></div><div><h3>Enterprise adds</h3><ul><li>Cash calendar: the next four weeks in and out</li><li>Can you afford this purchase, answered in one card</li><li>Late-payment interest owed to you as a registered MSME</li><li>Salespeople ranked by sales, collections, margin and new clients</li><li>One score per salesperson, on weights you set</li><li>Each salesperson&rsquo;s products, best product and collection rate</li><li>Sales targets, and the year so far against them</li><li>Contests with prizes: new clients, collection, one product, profit</li><li>Your clients by town, sized by sales</li><li>The towns each salesperson reaches, on a map</li><li>Clients overdue for an order, sorted into who is worth a call</li><li>A production queue, recipes and a demand forecast</li><li>WhatsApp orders read in; what was asked for and not supplied</li><li>Findings from your books, raised before you ask</li></ul></div><div><h3>Tycoon adds</h3><ul><li>A compliance calendar of what is due</li></ul></div></div></details>
     <p class="ladder-note">Built for the owner and the leadership seat. Your staff keep working in the software they already use; NORTHLAMP reads it. Logins: Free 1; Pro 1, plus a free read-only login for your CA; Enterprise 10 and Tycoon 25, each plus a CA login. On Enterprise and Tycoon, more logins come in packs of 5. PCs: 1 / 1 / 3 / 5.<br>* Warehouse: one company in your accounting software belonging to the same firm (same PAN), in any state. Godowns inside one company are not counted. A different PAN is a separate business.</p>
     <p class="ladder-note">These plans apply to licences issued from Update 55. Existing licences keep their terms.</p>
     <p class="ladder-cta">Ask us for a Free key, or <a data-goatcounter-click="demo-3" href="mailto:krupeshdprajapati@gmail.com?subject=Demo%20request">request a demo</a> and a 14-day access code.</p>
