@@ -218,7 +218,20 @@
 .f2.c .ans{min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 @media (max-width:760px){.f2.c{grid-template-columns:1fr;gap:var(--s4)}.rows span{font-size:18px;min-height:64px;padding:10px 4px}.f2.c .ans{min-height:0;padding:var(--s4) var(--s3)}}</style><style>.sv-note{margin:var(--s4) 0 0;font-size:16px}.allf{margin-top:var(--s5);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}.allf summary{cursor:pointer;font:500 20px/1.3 var(--display);padding:18px 0;min-height:44px}.allf-g{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);padding:var(--s2) 0 var(--s4)}.allf-g h3{font-size:20px;margin:0 0 var(--s2)}.allf-g ul{list-style:none;margin:0;padding:0;font-size:15px}.allf-g li{padding:7px 0;border-top:1px solid var(--line)}
 @media (max-width:1024px){.allf-g{grid-template-columns:1fr 1fr}}@media (max-width:640px){.allf-g{grid-template-columns:1fr}}.sv{margin:var(--s5) 0 0;padding:0}.sv div{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s5);padding:22px 0;border-top:1px solid var(--line-2)}.sv div:last-child{border-bottom:1px solid var(--line-2)}.sv dt{font:500 26px/1.25 var(--display);color:var(--navy)}.sv dd{margin:0;font-size:18px;max-width:52ch}
-@media (prefers-color-scheme:dark){.sv dt{color:#fff}}@media (max-width:760px){.sv div{grid-template-columns:1fr;gap:6px;padding:18px 0}.sv dt{font-size:22px}.sv dd{font-size:17px}}</style></head>
+@media (prefers-color-scheme:dark){.sv dt{color:#fff}}@media (max-width:760px){.sv div{grid-template-columns:1fr;gap:6px;padding:18px 0}.sv dt{font-size:22px}.sv dd{font-size:17px}}</style><style>/* C-086 draft 27 Nov: job headline, Today picture in the first screen, prices */
+.hero{min-height:0;display:block;padding:clamp(104px,14svh,150px) 0 var(--s5)}
+.hero-mark{display:none}
+.hero-copy{padding-top:0;padding-bottom:0}
+.hero h1{font-size:clamp(34px,4.4vw,60px);line-height:1.08;letter-spacing:-.02em;max-width:22ch;margin:0 0 var(--s3)}
+.hero .hero-line{font-size:clamp(18px,1.6vw,22px);margin:0 0 var(--s4);max-width:58ch}
+.hero .trust{margin:var(--s3) 0 0;font-size:16px}
+.hero .shot-one{margin:var(--s5) 0 0}
+@media (max-width:640px){.shot-one .view{aspect-ratio:1152/296}}
+.rung .price{font-family:var(--display);font-size:26px;line-height:1.25;font-weight:600;margin:var(--s2) 0 var(--s3)}
+.rung .price span{display:block;font-size:16px;font-weight:400;line-height:1.4}
+.f-price{font-weight:600;margin:0 0 var(--s3)}
+@media (max-width:760px){.hero{padding-top:124px}.hero-copy{padding-top:0;padding-bottom:0}.hero h1{font-size:32px}.hero .shot-one{margin-top:var(--s4)}}
+</style></head>
 <body>
 <a class="skip" href="#main">Skip to the page</a>
 <header class="top">
@@ -226,7 +239,7 @@
     <a class="brand" href="#main" aria-label="NORTHLAMP, top of page"><picture><source srcset="shared/assets/northlamp_mark_starC_dark.svg" media="(prefers-color-scheme: dark)"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></picture><span class="wordmark">NORTHLAMP<sup class="tm">&trade;</sup></span></a>
     <nav class="nav" aria-label="Page">
       <a href="#owners">What it shows</a>
-      <a href="#investors">For investors</a>
+      <a href="#plans">Prices</a>
       <a data-goatcounter-click="demo-1" class="nav-dl" href="https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.">Book a demo</a>
     </nav>
   </div>
@@ -236,9 +249,14 @@
 <section class="hero" id="download" data-ground="auto">
   <div class="hero-mark" aria-hidden="true"><picture><source srcset="shared/assets/northlamp_mark_starC_dark.svg" media="(prefers-color-scheme: dark)"><img data-mark-target src="shared/assets/northlamp_mark_starC.svg" width="64" height="64" alt=""></picture></div>
   <div class="wrap hero-copy">
-      <h1>Run the business from the command seat.</h1>
-      <p class="hero-line">Your books already know. Now you do.</p>
+      <h1>See who owes you and what is running low.</h1>
+      <p class="hero-line">NORTHLAMP is a Windows app for owners of trading and manufacturing businesses. It reads the accounting software you already use and never writes to it. Free shows who owes you. Pro adds stock and restock alerts.</p>
       <div class="cta"><a data-goatcounter-click="demo-2" class="btn" href="https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.">Book a demo on WhatsApp</a></div>
+      <p class="trust">Read-only by design. Already in use at an early customer site.</p>
+      <figure class="shot-one">
+      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/today_u58.png"><picture><source media="(max-width:640px)" srcset="shared/shots/today_u58_card.png" width="1152" height="296"><img src="shared/shots/today_u58.png" width="1600" height="854" alt="The To act on screen on a demo book. The date and this month's sales come first, then the first card, Chase top 3 first, with a Chase payments button. Below it: Hold steady, Hold prices, Safe to spend &#8377;8.30L, and 5 clients to call."></picture></a></span></div>
+      <figcaption>What to do first, and how each answer was worked out.<span class="sample">Demo book. Names and figures are invented. Tap or click to enlarge.</span></figcaption>
+    </figure>
   </div>
 </section>
 <section class="hero-more">
@@ -246,15 +264,6 @@
     <p class="works">Reads the accounting software Indian businesses already use, with more to come.<br>For Windows. Mac and Linux versions are in the works.</p>
   </div>
 </section>
-<section class="tour" aria-label="The app">
-  <div class="wrap">
-    <figure class="shot-one">
-      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/today_u58.png"><img src="shared/shots/today_u58.png" width="1600" height="854" alt="The To act on screen on a demo book. The date and this month's sales come first, then the first card, Chase top 3 first, with a Chase payments button. Below it: Hold steady, Hold prices, Safe to spend &#8377;8.30L, and 5 clients to call."></a></span></div>
-      <figcaption>What to do first, and how each answer was worked out.<span class="sample">Demo book. Names and figures are invented. Tap or click to enlarge.</span></figcaption>
-    </figure>
-  </div>
-</section>
-
 <section class="band" id="owners">
   <div class="wrap">
     <h2>What NORTHLAMP shows you.</h2>
@@ -278,6 +287,7 @@
     <div class="ladder" id="ladder">
       <div class="rung">
         <h3>Free: See the business</h3>
+        <p class="price">&#8377;0</p>
         <p class="for">For owners taking a first clear read of the business.</p>
         <p>Your sales, clients and money owed, laid out the way an owner reads them.</p>
         <ul>
@@ -289,6 +299,7 @@
       </div>
       <div class="rung">
         <h3>Pro: Trade with an edge</h3>
+        <p class="price">&#8377;24,000 once<span>then &#8377;6,000 a year for updates and support</span></p>
         <p class="for">For the owner-operator running a single trading company.</p>
         <p>Reads your books live, with reorder lists, purchases and payment reminders, for you and your CA.</p>
         <ul>
@@ -304,6 +315,7 @@
       </div>
       <div class="rung">
         <h3>Enterprise: Make at scale</h3>
+        <p class="price">&#8377;1,20,000 once<span>then &#8377;30,000 a year for updates and support</span></p>
         <p class="for">For manufacturers and distributors running production, warehouses and dispatch.</p>
         <p>Adds raw material to buy, bank and cash, team rankings, 10 logins and up to three warehouses of the same firm*.</p>
         <ul>
@@ -319,6 +331,7 @@
       </div>
       <div class="rung">
         <h3>Tycoon: Own several</h3>
+        <p class="price">&#8377;2,00,000 once<span>then &#8377;50,000 a year for updates and support</span></p>
         <p class="for">For group owners running several businesses.</p>
         <p>Three businesses with up to three warehouses each*, 25 logins, the group overview and the compliance calendar. Any mix of trades, each with its own books, from one install.</p>
         <ul>
@@ -333,6 +346,7 @@
     </div>
     <details class="allf"><summary>These features, plan by plan</summary><div class="allf-g"><div><h3>Free</h3><ul><li>Who owes you, oldest debt first</li></ul></div><div><h3>Pro adds</h3><ul><li>Who to chase first</li><li>What your clients buy more or less of than before</li><li>Which clients moved to which product groups</li><li>Clients and products ranked, with growth on last year</li><li>Suppliers ranked by price</li><li>Products selling below breakeven, named</li><li>Every sale checked against the price that client agreed</li><li>Your rivals&rsquo; prices, kept beside your own</li><li>Businesses near your towns that are not yet on your book</li><li>What is running low, and a reorder built for you</li><li>Each item you buy: its rate over the months, by supplier</li><li>Today&rsquo;s dispatch: which transporter takes which order</li></ul></div><div><h3>Enterprise adds</h3><ul><li>Cash calendar: the next four weeks in and out</li><li>Can you afford this purchase, answered in one card</li><li>Late-payment interest owed to you as a registered MSME</li><li>Salespeople ranked by sales, collections, margin and new clients</li><li>One score per salesperson, on weights you set</li><li>Each salesperson&rsquo;s products, best product and collection rate</li><li>Sales targets, and the year so far against them</li><li>Contests with prizes: new clients, collection, one product, profit</li><li>Your clients by town, sized by sales</li><li>The towns each salesperson reaches, on a map</li><li>Clients overdue for an order, sorted into who is worth a call</li><li>A production queue, recipes and a demand forecast</li><li>WhatsApp orders read in; what was asked for and not supplied</li><li>Findings from your books, raised before you ask</li></ul></div><div><h3>Tycoon adds</h3><ul><li>A compliance calendar of what is due</li></ul></div></div></details>
     <p class="ladder-note">Built for the owner and the leadership seat. Your staff keep working in the software they already use; NORTHLAMP reads it. Logins: Free 1; Pro 1, plus a free read-only login for your CA; Enterprise 10 and Tycoon 25, each plus a CA login. On Enterprise and Tycoon, more logins come in packs of 5. PCs: 1 / 1 / 3 / 5.<br>* Warehouse: one company in your accounting software belonging to the same firm (same PAN), in any state. Godowns inside one company are not counted. A different PAN is a separate business.</p>
+    <p class="ladder-note">Prices in rupees. No GST is charged at present. A pack of 5 more logins on Enterprise or Tycoon: &#8377;15,000 once, then &#8377;3,750 a year.</p>
     <p class="ladder-note">These plans apply to licences issued from Update 55. Existing licences keep their terms.</p>
     <p class="ladder-cta"><a data-goatcounter-click="key-1" href="https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20free%20key.">Ask us for a Free key</a>, or <a data-goatcounter-click="demo-3" href="https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.">book a demo</a> and a 14-day access code, on WhatsApp.</p>
     <p class="ladder-note">What do you think of NORTHLAMP? <a data-goatcounter-click="feedback" href="mailto:krupeshdprajapati@gmail.com?subject=Feedback%20on%20NORTHLAMP">Write to us</a>.</p>
@@ -386,34 +400,6 @@
   </div>
 </section>
 
-<section class="band white inv" id="investors" aria-labelledby="inv-h">
-  <div class="wrap">
-    <h2 class="inv-head" id="inv-h">Every owner deserves the full picture.</h2>
-    <div class="two">
-      <div class="col">
-        <h3>The problem</h3>
-        <p>The owner of an Indian business runs blind between month-ends. Credit, stock, price and people are decided on memory and phone calls. The answers sit in the books, and nobody reads them in time.</p>
-        <h3>What we built</h3>
-        <p>NORTHLAMP is the owner&rsquo;s command seat. It reads the books the business already keeps and shows who to chase, the cash four weeks ahead, where price is slipping and which clients are overdue for an order.</p>
-        <h3>Why it wins</h3>
-        <p>A small or mid-sized firm gets the view a finance team would give it, with nothing new to enter. A larger group gets every company and every salesperson in one seat.</p>
-        <h3>Traction</h3>
-        <p>In use at an early customer site. Trademark filed. Read-only by design: it never writes to the accounting software, and it runs on the owner&rsquo;s own computer.</p>
-      </div>
-      <div class="col">
-        <h3>What&rsquo;s next</h3>
-        <ul class="plain">
-          <li>Native iPad, iPhone and Android apps</li>
-          <li>A wider list of supported accounting software</li>
-          <li>An assistant that learns each business and suggests course corrections</li>
-        </ul>
-        <h3>The future</h3>
-        <p>As the base grows, NORTHLAMP moves from showing the business to advising it, in the owner&rsquo;s pocket and on the owner&rsquo;s own data. Each business&rsquo;s figures stay under that business&rsquo;s control.</p>
-        <p class="inv-cta">We are speaking with investors who know how Indian businesses are run. <a href="mailto:krupeshdprajapati@gmail.com?subject=Investor%20enquiry">Write to us</a>.</p>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer>
@@ -421,6 +407,7 @@
     <span>NORTHLAMP<sup class="tm">&trade;</sup>. Made by Krupesh Prajapati.</span>
     <span><a href="mailto:krupeshdprajapati@gmail.com">krupeshdprajapati@gmail.com</a></span>
     <span><a data-goatcounter-click="demo-5" href="https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.">Book a demo on WhatsApp</a></span>
+    <span><a href="investors.html">For investors</a></span>
     <span><a data-goatcounter-click="download-1" href="https://github.com/KDPrajapati/NORTHLAMP-Releases/releases/latest">Download for Windows</a></span>
     <span>Visits and clicks on the demo, free key, download and feedback links are counted as totals, without cookies.</span>
   </div>
@@ -428,7 +415,8 @@
 <script>
 (function(){var P={Free:["See the business","Your sales, clients and money owed, laid out the way an owner reads them."],Pro:["Trade with an edge","Reads your books live, with reorder lists, purchases and payment reminders, for you and your CA."],Enterprise:["Make at scale","Adds raw material to buy, bank and cash, team rankings, 10 logins and up to three warehouses of the same firm."],Tycoon:["Own several","Three businesses with up to three warehouses each, 25 logins, the group overview and the compliance calendar."]};
 function mark(n){document.querySelectorAll("#ladder .rung").forEach(function(r){r.classList.toggle("fit",r.querySelector("h3").textContent.indexOf(n+":")===0)});}
-function card(n){return '<h3>'+n+'</h3><p class="f-tag">'+P[n][0]+'</p><p>'+P[n][1]+'</p><a class="btn" href="'+(n==="Free"?"https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20free%20key.":"https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.")+'" data-goatcounter-click="'+(n==="Free"?"key-finder":"demo-finder")+'">'+(n==="Free"?"Ask for a free key on WhatsApp":"Book a demo on WhatsApp")+'</a>';}
+var PR={Free:"₹0",Pro:"₹24,000 once, then ₹6,000 a year",Enterprise:"₹1,20,000 once, then ₹30,000 a year",Tycoon:"₹2,00,000 once, then ₹50,000 a year"};
+function card(n){return '<h3>'+n+'</h3><p class="f-tag">'+P[n][0]+'</p><p>'+P[n][1]+'</p><p class="f-price">'+PR[n]+'</p><a class="btn" href="'+(n==="Free"?"https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20free%20key.":"https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.")+'" data-goatcounter-click="'+(n==="Free"?"key-finder":"demo-finder")+'">'+(n==="Free"?"Ask for a free key on WhatsApp":"Book a demo on WhatsApp")+'</a>';}
 document.querySelector("#finder form").addEventListener("change",function(e){document.getElementById("ans").innerHTML=card(e.target.value);mark(e.target.value);if(window.goatcounter&&goatcounter.bind_events)goatcounter.bind_events();});})();
 </script>
 <script data-goatcounter="https://northlamp.goatcounter.com/count" async src="shared/stats/goatcounter-count.js"></script>
