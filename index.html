@@ -211,7 +211,7 @@
     section.band{padding:var(--s6) 0}
   }
 </style>
-<style>.frame{position:relative;overflow:hidden}</style><style>.f2{margin:var(--s4) 0 0}.f2 h3{margin:0 0 var(--s2);font-size:28px}.f2 fieldset{border:0;margin:0;padding:0;min-width:0}.f2 legend{font-size:17px;font-weight:600;padding:0;margin:0 0 var(--s1)}
+<style>.frame{position:relative;overflow:hidden}.shot-one .view{aspect-ratio:1600/854}.shot-one .view>.shot-link{height:auto}.shot-one .view img{width:100%;height:auto;object-fit:fill}</style><style>.f2{margin:var(--s4) 0 0}.f2 h3{margin:0 0 var(--s2);font-size:28px}.f2 fieldset{border:0;margin:0;padding:0;min-width:0}.f2 legend{font-size:17px;font-weight:600;padding:0;margin:0 0 var(--s1)}
 .f2 input{position:absolute;opacity:0;width:1px;height:1px}.f2 label{cursor:pointer;position:relative}.f2 label:has(:focus-visible){outline:2px solid currentColor;outline-offset:3px;border-radius:8px}.f2 .f-tag{font-weight:600;margin:0 0 var(--s2)}.f2 .ans{background:var(--navy-soft);border-radius:14px;padding:var(--s5) var(--s4)}.f2 .ans h3{font-size:40px;margin:0 0 4px}.f2 .ans p{max-width:38ch}.f2 .btn{margin-top:var(--s1)}
 @media (prefers-color-scheme:dark){.f2 .ans{background:#1A1D23}}.f2.c{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--s5);align-items:stretch}.rows label{display:block;border-top:1px solid var(--line-2)}.rows label:last-child{border-bottom:1px solid var(--line-2)}.rows span{display:flex;align-items:center;gap:var(--s3);min-height:72px;padding:10px var(--s2);font:500 21px/1.3 var(--display)}.rows span::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;border:2px solid currentColor;box-sizing:border-box}.rows input:checked+span::before{border-width:6px}.rows label:hover span,.rows input:checked+span{background:var(--navy-soft)}
 @media (prefers-color-scheme:dark){.rows label:hover span,.rows input:checked+span{background:#262A32}}
@@ -247,22 +247,11 @@
   </div>
 </section>
 <section class="tour" aria-label="The app">
-  <div class="wrap tour-grid">
-    <ol class="tour-steps">
-      <li><h3>Today</h3><p>What needs you, in order.</p></li>
-      <li><h3>Money</h3><p>Receivables by age, and who to call first.</p></li>
-      <li><h3>Clients</h3><p>Who buys from you, and what they buy more or less of.</p></li>
-    </ol>
-    <div class="tour-pin"><div class="tour-frames">
-      <figure>
-      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_today_1920x1080_v4.png"><img src="shared/shots/b826_hub_today_1920x1080_v4.png" width="1920" height="1080" alt="Today on a demo book: Clients to call comes first, then four cards to act on: Credit, Reordering, Pricing, and Spending on stock."></a></span></div>
-      <figcaption><b>Today</b>Clients to call first, then the cards to act on.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption>
+  <div class="wrap">
+    <figure class="shot-one">
+      <div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/today_u58.png"><img src="shared/shots/today_u58.png" width="1600" height="854" alt="The To act on screen on a demo book. The date and this month's sales come first, then the first card, Chase top 3 first, with a Chase payments button. Below it: Hold steady, Hold prices, Safe to spend &#8377;8.30L, and 5 clients to call."></a></span></div>
+      <figcaption>What to do first, and how each answer was worked out.<span class="sample">Demo book. Names and figures are invented. Tap or click to enlarge.</span></figcaption>
     </figure>
-      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_money_1920x1080_v4.png"><img src="shared/shots/b826_hub_money_1920x1080_v4.png" width="1920" height="1080" loading="lazy" alt="Money on a demo book: billed and received this year, who owes you, and payment reminders."></a></span></div>
-        <figcaption><b>Money</b>Billed, received and owed. Payment reminders come with a paid plan.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption></figure>
-      <figure><div class="frame"><div class="bar" aria-hidden="true"><img src="shared/assets/northlamp_mark_starC.svg" alt=""></div><span class="view"><a class="shot-link" href="shared/shots/b826_hub_clients_1920x1080_v3.png"><img src="shared/shots/b826_hub_clients_1920x1080_v3.png" width="1920" height="1080" loading="lazy" alt="Clients on a demo book: the directory ranked by sales, a client profile, and buying shifts by product."></a></span></div>
-        <figcaption><b>Clients</b>Clients ranked by sales, a profile for each, and shifts in what they buy.<span class="sample">Demo book. Names and figures are invented. <span class="note-crop">Tap or click for the full screen.</span><span class="note-full">Tap or click to enlarge.</span></span></figcaption></figure>
-    </div></div>
   </div>
 </section>
 
@@ -442,7 +431,6 @@ function mark(n){document.querySelectorAll("#ladder .rung").forEach(function(r){
 function card(n){return '<h3>'+n+'</h3><p class="f-tag">'+P[n][0]+'</p><p>'+P[n][1]+'</p><a class="btn" href="'+(n==="Free"?"https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20free%20key.":"https://wa.me/919023516477?text=Hello%20NORTHLAMP%2C%20I%20would%20like%20a%20demo.")+'" data-goatcounter-click="'+(n==="Free"?"key-finder":"demo-finder")+'">'+(n==="Free"?"Ask for a free key on WhatsApp":"Book a demo on WhatsApp")+'</a>';}
 document.querySelector("#finder form").addEventListener("change",function(e){document.getElementById("ans").innerHTML=card(e.target.value);mark(e.target.value);if(window.goatcounter&&goatcounter.bind_events)goatcounter.bind_events();});})();
 </script>
-<script src="shared/motion/tour.js" defer></script>
 <script data-goatcounter="https://northlamp.goatcounter.com/count" async src="shared/stats/goatcounter-count.js"></script>
 <script src="shared/motion/upgrades.js" defer></script></body>
 </html>
